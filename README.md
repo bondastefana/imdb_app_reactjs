@@ -40,6 +40,7 @@
         - EditMoviePage.jsx
         - EditMoviePage.css
     - shared/ ( utils.js, api.js ( server requests))
+    - assets/img
     - App.jsx ( Router )
 
 
