@@ -13,7 +13,7 @@
 - src
     - components ( shared components)
       - Header
-        - Header.jsx
+        - Header.jsx 
         - Header.css
       - Footer
     - pages
