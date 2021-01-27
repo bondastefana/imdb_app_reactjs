@@ -5,6 +5,10 @@ import {
   Route,
   Link
 } from "react-router-dom";
+
+import {MovieDetailsPage}from './pages/MovieDetailsPage/MovieDetailPage';
+
+
 import { HomePage } from './pages/HomePage/HomePage'
 import { SearchPage } from './pages/SearchPage/SearchPage';
 
@@ -31,6 +35,9 @@ export default function App() {
         <Switch>
           <Route path="/search">
             <SearchPage />
+          </Route>
+          <Route path="/movie/:id">
+            <MovieDetailsPage/>
           </Route>
           <Route path="/">
             <HomePage />
