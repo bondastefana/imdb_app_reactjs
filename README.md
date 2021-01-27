@@ -13,7 +13,7 @@
 - src
     - components ( shared components)
       - Header
-        - Header.jsx
+        - Header.jsx 
         - Header.css
       - Footer
     - pages
@@ -40,7 +40,9 @@
         - EditMoviePage.jsx
         - EditMoviePage.css
     - shared/ ( utils.js, api.js ( server requests))
+    - assets/img
     - App.jsx ( Router )
+
 
 ## Available Scripts
 
@@ -62,3 +64,4 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
