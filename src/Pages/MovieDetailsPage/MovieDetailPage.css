@@ -1,0 +1,28 @@
+/* Background */
+
+#background-page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+
+  background: linear-gradient(
+    242.06deg,
+    #140c0c -10.48%,
+    #643975 40.66%,
+    #000000 100.49%
+  );
+}
+
+#movie-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 40px;
+  height: 30px;
+}
+
+#movie-description {
+  margin: 0px;
+}
