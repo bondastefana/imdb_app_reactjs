@@ -1,49 +1,36 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HomePage } from './Pages/HomePage/HomePage';
+import { SearchPage } from './Pages/SearchPage/SearchPage';
+import { LoginRegisterPage } from './Pages/LoginRegisterPage/LoginRegisterPage';
+import { Header } from './componets/Header/Header';
+import { MovieDetailsPage } from './pages/MovieDetailsPage/MovieDetailPage';
+import { Container } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import {MovieDetailsPage}from './pages/MovieDetailsPage/MovieDetailPage';
-
-
-import { HomePage } from './pages/HomePage/HomePage'
-import { SearchPage } from './pages/SearchPage/SearchPage';
-
-
-
-
-export default function App() {
-  return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/search">Search</Link>
-            </li>
-          </ul>
-        </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/search">
-            <SearchPage />
-          </Route>
-          <Route path="/movie/:id">
-            <MovieDetailsPage/>
-          </Route>
-          <Route path="/">
-            <HomePage />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
+export class App extends React.Component {
+	// Header comp is included outside the Switch because we want to display it on each page;
+	render() {
+		return (
+			<Router>
+				<Container fluid>
+					<Header />
+					<Switch>
+						<Route path="/search">
+							<SearchPage />
+						</Route>
+						<Route path="/">
+							<HomePage />
+						</Route>
+						<Route path="/login-register">
+							<LoginRegisterPage />
+						</Route>
+						<Route path="/movie/:id">
+							<MovieDetailsPage />
+						</Route>
+					</Switch>
+				</Container>
+			</Router>
+		);
+	}
 }
