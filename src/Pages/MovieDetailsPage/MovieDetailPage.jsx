@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 
 // Making the static components on the page
@@ -17,7 +18,7 @@ import React from "react";
     // onClick() - show the details
     // edit movie - 
         
-export class MovieDetails extends React.Component{
+class MovieDetails extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -58,8 +59,10 @@ export class MovieDetails extends React.Component{
             marginTop: "3%",
             marginBottom: "1%",
             marginLeft: "10%", 
+
+            
         }
-       
+        console.log(this.props.location);
 
         return(
         <container id="background-page">
@@ -88,6 +91,8 @@ export class MovieDetails extends React.Component{
         )
     }
 }
+
+export const MovieDetailsPage = withRouter(MovieDetails)
 
 
 

@@ -34,23 +34,23 @@ export class FetchMovies extends React.Component{
 
     //Asteptam ca raspunsul sa fie 200
 
-    const url = "https://movies-app-siit.herokuapp.com/movies";
-    const response = await fetch(url);
-    const data;
+    // const url = "https://movies-app-siit.herokuapp.com/movies";
+    // const response = await fetch(url);
+    // const data;
 
 
-    if(response.status===200){
-       data = await response.json();
-    }else{
-      this.state.movieList.push("Error");
-    }
+    // if(response.status===200){
+    //    data = await response.json();
+    // }else{
+    //   this.state.movieList.push("Error");
+    // }
    
 
-    Object.values(data.results).forEach(movie => this.state.movieList.push(movie));
+    // Object.values(data.results).forEach(movie => this.state.movieList.push(movie));
 
-    if(this.state.movieList){
-      this.setState({loading: false});
-    }
+    // if(this.state.movieList){
+    //   this.setState({loading: false});
+    // }
 
   }
 
