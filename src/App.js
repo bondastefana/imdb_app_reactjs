@@ -4,6 +4,7 @@ import { HomePage } from './Pages/HomePage/HomePage';
 import { SearchPage } from './Pages/SearchPage/SearchPage';
 import { LoginRegisterPage } from './Pages/LoginRegisterPage/LoginRegisterPage';
 import { Header } from './componets/Header/Header';
+import { MovieDetailsPage } from './pages/MovieDetailsPage/MovieDetailPage';
 import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -23,6 +24,9 @@ export class App extends React.Component {
 						</Route>
 						<Route path="/login-register">
 							<LoginRegisterPage />
+						</Route>
+						<Route path="/movie/:id">
+							<MovieDetailsPage />
 						</Route>
 					</Switch>
 				</Container>
