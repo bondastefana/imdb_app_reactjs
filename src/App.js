@@ -22,7 +22,7 @@ export default function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/home">Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <Link to="/search">Search</Link>
