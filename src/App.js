@@ -10,7 +10,7 @@ import { SearchPage } from './pages/SearchPage/SearchPage';
 
 
 
-function App() {
+
 export default function App() {
   return (
     <Router>
@@ -39,5 +39,4 @@ export default function App() {
       </div>
     </Router>
   );
-}
 }
