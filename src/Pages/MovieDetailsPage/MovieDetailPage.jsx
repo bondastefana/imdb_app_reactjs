@@ -1,17 +1,51 @@
 import React from "react";
 
 
+// Making the static components on the page
+    // The Container 
+        // Image of the movie selected 
+        // Title and description
+        // The  "Edit Movie" Button 
 
+// Making the interactive components 
+    // get movies- API 
+    // get description
+    // get Poster 
+    // rating etc
+    // 
+    //
+    // onClick() - show the details
+    // edit movie - 
+        
 export class MovieDetails extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+          error: null,
+          isLoaded: false,
+          items: []
+        };
+      }
+    
+      componentDidMount() {
+        fetch("https://movies-api-siit.herokuapp.com/")
+          .then(response => response.json())
+          .then(
+            (result) => {
+              this.setState({
+                isLoaded: true,
+                items: result.items
+            });
+        })
+    };
 
     render(){
         
-        
         const styleArea = {
            marginTop: "0%",
-           marginLeft:"5%",
-            width: "90%",
-            height: "90%",
+           marginLeft:"2%",
+           width: "95vw",
+            height: "95vh",
             background: "rgba(230, 230, 230, 0.30)",
             borderRadius: "20px",
             
@@ -25,39 +59,33 @@ export class MovieDetails extends React.Component{
             marginBottom: "1%",
             marginLeft: "10%", 
         }
-        const details = { 
-            padding: "20px",
-            margin: "10%"
-        }
+       
 
         return(
         <container id="background-page">
         <button className="buttons" style={buttonStyle}>Edit Movie</button>
-          <div style={styleArea} >
-            <div id= "movie-image" >
-                <div>Movie image</div>
-             </div>
-            <div id="movie-details" style={details}>
-             
-             <div id="movie-description">
-             <h2>Movie title</h2>
-             <h3>Descriprion</h3>
-             <div>Rating</div>
-             <div id='details'>
-                <h3> Director
-                    <h4>Dir Name</h4>
-                </h3>
-                <h3> Writers
-                    <h4>Writer Name</h4>
-                </h3>
-                <h3> Stars
-                    <h4>Star Name</h4>
-                </h3>
-             </div>
-             </div>
-            </div>
-          </div>
-        </container>)
+        <table  style={styleArea} >
+            <tr>
+                <th id="movie-image">Movie image</th>
+                <th><h2>Movie title</h2>
+                    <th id="movie-description">  
+                                      
+                        <h3> Director:
+                            <span>  Dir Name</span>
+                        </h3>
+                        <h3> Writers:
+                            <span>  Writer Name</span>
+                        </h3>
+                        <h3> Stars:
+                            <span>  Star Name</span>
+                        </h3>
+                    </th> 
+                </th>
+                <td>year</td> 
+            </tr>   
+        </table>
+        </container>
+        )
     }
 }
 

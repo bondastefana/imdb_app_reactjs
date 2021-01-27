@@ -12,6 +12,7 @@ import "./Pages/MovieDetailsPage/Background.png";
 
 
 
+
 export default function App() {
   return (
     <Router>

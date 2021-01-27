@@ -6,6 +6,8 @@
   height: 100%;
   left: 0px;
   top: 0px;
+  padding-top: 5%;
+  padding-bottom: 10%;
 
   background: linear-gradient(
     242.06deg,
@@ -24,5 +26,14 @@
 }
 
 #movie-description {
-  margin: 0px;
+  background-color: #b6bdb44f;
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 50%;
+  margin-top: 50vh;
+  border-radius: 20px;
+
+  width: 30vw;
+  height: 20vh;
 }
