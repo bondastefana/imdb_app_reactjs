@@ -45,7 +45,7 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className="base-container" ref={this.props.containerRef}>
+            <div className="base-container">
                 <div className="login-header">
                     <img src={Btn} />
                     <img src={BtnBlank} />
@@ -109,7 +109,7 @@ class Register extends React.Component {
 
     render() {
         return (
-            <div className="base-container" ref={this.props.containerRef}>
+            <div className="base-container">
                 <div className="register-header">
                     <img src={BtnReg} />
                     <img src={BtnBlankReg} />
@@ -150,7 +150,7 @@ class Register extends React.Component {
     }
 }
 
-export class LoginPage extends React.Component {
+export class LoginRegisterPage extends React.Component {
     constructor(props) {
         super(props);
 
@@ -158,11 +158,11 @@ export class LoginPage extends React.Component {
 
     render() {
         return (
-            <div className="LoginPage">
+            <div className="LoginRegisterPage">
                 <div>
-                    <div className="container" ref={ref => (this.container = ref)}>
-                        <Login containerRef={ref => (this.current = ref)}></Login>
-                        <Register containerRef={ref => (this.current = ref)} />
+                    <div className="container">
+                        <Login />
+                        <Register />
                     </div>
                 </div>
             </div>
