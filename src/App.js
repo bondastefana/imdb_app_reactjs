@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { HomePage } from './Pages/HomePage/HomePage';
-import { SearchPage } from './Pages/SearchPage/SearchPage';
-import { LoginRegisterPage } from './Pages/LoginRegisterPage/LoginRegisterPage';
+import { HomePage } from './pages/HomePage/HomePage';
+import { SearchPage } from './pages/SearchPage/SearchPage';
+import { LoginRegisterPage } from './pages/LoginRegisterPage/LoginRegisterPage';
 import { Header } from './componets/Header/Header';
-import { MovieDetailsPage } from './Pages/MovieDetailsPage/MovieDetailPage';
+import { MovieDetailsPage } from './pages/MovieDetailsPage/MovieDetailPage';
 import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
