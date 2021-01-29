@@ -1,0 +1,12 @@
+<svg width="150" height="50" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="602" width="802" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_1" fill="#8D75BD" d="m0,25c0,-13.8071 11.1929,-25 25,-25l100,0c13.807,0 25,11.1929 25,25c0,13.8071 -11.193,25 -25,25l-100,0c-13.8071,0 -25,-11.1929 -25,-25z"/>
+  <text font-style="normal" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="'Poppins'" font-size="24" id="svg_2" y="30.87612" x="43.75001" stroke-opacity="null" stroke-width="0" stroke="null" fill="#ffffff">Login</text>
+ </g>
+</svg>
