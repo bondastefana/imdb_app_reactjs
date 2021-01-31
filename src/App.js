@@ -4,8 +4,8 @@ import { HomePage } from './Pages/HomePage/HomePage';
 import { SearchPage } from './Pages/SearchPage/SearchPage';
 import { LoginRegisterPage } from './Pages/LoginRegisterPage/LoginRegisterPage';
 import { Header } from './componets/Header/Header';
-import { MovieDetailsPage } from './pages/MovieDetailsPage/MovieDetailPage';
-import { Container } from 'react-bootstrap';
+import { MovieDetailsPage } from './Pages/MovieDetailsPage/MovieDetailPage';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export class App extends React.Component {
@@ -13,23 +13,21 @@ export class App extends React.Component {
 	render() {
 		return (
 			<Router>
-				<Container fluid>
-					<Header />
-					<Switch>
-						<Route path="/search">
-							<SearchPage />
-						</Route>
-						<Route path="/">
-							<HomePage />
-						</Route>
-						<Route path="/login-register">
-							<LoginRegisterPage />
-						</Route>
-						<Route path="/movie/:id">
-							<MovieDetailsPage />
-						</Route>
-					</Switch>
-				</Container>
+				<Header />
+				<Switch>
+					<Route path="/search">
+						<SearchPage />
+					</Route>
+					<Route path="/">
+						<HomePage />
+					</Route>
+					<Route path="/login-register">
+						<LoginRegisterPage />
+					</Route>
+					<Route path="/movie/:id">
+						<MovieDetailsPage />
+					</Route>
+				</Switch>
 			</Router>
 		);
 	}
