@@ -12,10 +12,9 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("./assets/Background.svg");
+  /* background-image: url("./assets/Background.svg"); */
+  background: #592547;
   background-size: cover;
-  /* background: rgb(59, 32, 82);
-  background: linear-gradient(90deg, rgba(59, 32, 82, 1) 50%, rgba(210, 200, 228, 1) 100%); */
 }
 
 * {
@@ -23,7 +22,7 @@ body {
 }
 
 #root {
-  /* background: linear-gradient( 242.06deg, #140c0c -10.48%, #643975 40.66%, #000000 100.49%); */
+  background: linear-gradient(to top right, #993399 -127%, #000000 90%);
 }
 
 code {

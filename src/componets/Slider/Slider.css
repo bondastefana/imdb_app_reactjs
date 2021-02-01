@@ -1,5 +1,6 @@
 .movie-container {
-  background-color: #373b38;
+  /* background: linear-gradient(to top left, #808080 -127%, #000000 86%); */
+  background: linear-gradient(to top left, #808080 -220%, #000000 79%);
   border-radius: 3px;
   color: white;
   min-height: 450px;

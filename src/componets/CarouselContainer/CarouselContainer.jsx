@@ -13,7 +13,7 @@ export class CarouselContainer extends React.Component {
 
   componentDidMount() {
     const { category } = this.props //destructuring - vine de pe props
-    fetch(`${baseURL}/movies?Genre=${category}`, { method: 'GET' })
+    fetch(`${baseURL}/movies?Genre=${category}`, { method: 'GET' }) // API call - get movies by Genre
       .then((response) => {
         return response.json()
       })
@@ -30,6 +30,7 @@ export class CarouselContainer extends React.Component {
     return (
       <div className="carousel">
         <Slider movies={this.state.movies} categoryName={category} />
+        {/* The Slider is populated with movies si categoryName*/}
       </div>
     )
   }
