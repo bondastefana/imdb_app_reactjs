@@ -1,13 +1,31 @@
+@font-face {
+  font-family: 'Poppins';
+  src: local('Poppins'), url(./assets/fonts/Poppins-Regular.ttf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Poppins Light Italic';
+  src: local('Poppins'), url(./assets/fonts/Poppins-LightItalic.ttf) format('opentype');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("./assets/Background.svg");
+  background-size: cover;
+  /* background: rgb(59, 32, 82);
+  background: linear-gradient(90deg, rgba(59, 32, 82, 1) 50%, rgba(210, 200, 228, 1) 100%); */
+}
+
+* {
+  font-family: Poppins;
+}
+
+#root {
+  /* background: linear-gradient( 242.06deg, #140c0c -10.48%, #643975 40.66%, #000000 100.49%); */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
