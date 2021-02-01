@@ -1,99 +1,106 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import "./MovieDetailPage.css";
+import { Link, withRouter } from "react-router-dom";
+import "../../assets/BtnBlankReg.svg";
+import { LoginRegisterPage } from "../LoginRegisterPage/LoginRegisterPage";
+import { ReactComponent } from "../../assets/BtnBlankReg.svg";
+import { HomePage } from "../HomePage/HomePage";
 
+class MovieDetails extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loadind: true,
+      movie: [],
+      editMovie: false,
+    };
+  }
 
-// Making the static components on the page
-    // The Container 
-        // Image of the movie selected 
-        // Title and description
-        // The  "Edit Movie" Button 
+  async componentDidMount() {
+    const url = "https://movies-app-siit.herokuapp.com/movies/";
+    const response = await fetch(url);
+    const data = await response.json();
+    this.setState({ movie: data.results[1], loading: false });
+  }
 
-// Making the interactive components 
-    // get movies- API 
-    // get description
-    // get Poster 
-    // rating etc
-    // 
-    //
-    // onClick() - show the details
-    // edit movie - 
-        
-class MovieDetails extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-          error: null,
-          isLoaded: false,
-          items: []
-        };
-      }
-    
-      componentDidMount() {
-        fetch("https://movies-api-siit.herokuapp.com/")
-          .then(response => response.json())
-          .then(
-            (result) => {
-              this.setState({
-                isLoaded: true,
-                items: result.items
-            });
-        })
+  backButton = () => this.props.history.goBack();
+
+  editButton = () => {
+    this.setState({
+      editMovie: true,
+    });
+  };
+
+  render() {
+    const styleArea = {
+      marginTop: "3%",
+      marginBottom: "3%",
+      marginLeft: "0%",
+      width: "95vw",
+      height: "90%",
+      background: "rgba(230, 230, 240, 0.10)",
+      borderRadius: "20px",
+      zIndex: "-1px",
     };
 
-    render(){
-        
-        const styleArea = {
-           marginTop: "0%",
-           marginLeft:"2%",
-           width: "95vw",
-            height: "95vh",
-            background: "rgba(230, 230, 230, 0.30)",
-            borderRadius: "20px",
-            
-        }
-        const buttonStyle ={
-            border: "0px",
-            borderRadius: "50px",
-            padding: "10px 15px",
-            background: "rgba(207, 202, 217, 0.48)",
-            marginTop: "3%",
-            marginBottom: "1%",
-            marginLeft: "10%", 
+    console.log(this.props.location);
 
-            
-        }
-        console.log(this.props.location);
+    return (
+      <div>
+        {this.state.loading || !this.state.movie ? (
+          <div className="loading">loading...</div>
+        ) : (
+          <tr className="movie-details" style={styleArea}>
+            <th>
+              <img className="posters" src={this.state.movie.Poster} />
+            </th>
 
-        return(
-        <container id="background-page">
-        <button className="buttons" style={buttonStyle}>Edit Movie</button>
-        <table  style={styleArea} >
-            <tr>
-                <th id="movie-image">Movie image</th>
-                <th><h2>Movie title</h2>
-                    <th id="movie-description">  
-                                      
-                        <h3> Director:
-                            <span>  Dir Name</span>
-                        </h3>
-                        <h3> Writers:
-                            <span>  Writer Name</span>
-                        </h3>
-                        <h3> Stars:
-                            <span>  Star Name</span>
-                        </h3>
-                    </th> 
-                </th>
-                <td>year</td> 
-            </tr>   
-        </table>
-        </container>
-        )
-    }
+            <th>
+              <h2 className="movie-title">{this.state.movie.Title}</h2>
+
+              <Link to="/login-register">
+                <button className="button" onClick={this.editButton.bind(this)}>
+                  Edit Movie
+                </button>
+              </Link>
+
+              <div className="imdbRating">
+                {" "}
+                IMDB Rating:
+                <span className="rating"> {this.state.movie.imdbRating}</span>
+              </div>
+              <ul className="movie-description">
+                <li>
+                  {" "}
+                  Year :
+                  <span className="movie-des"> {this.state.movie.Year}</span>
+                </li>
+                <li>
+                  Genre :
+                  <span className="movie-des"> {this.state.movie.Genre}</span>
+                </li>
+                <li>
+                  Country :
+                  <span className="movie-des"> {this.state.movie.Country}</span>
+                </li>
+                <li>
+                  Type :
+                  <span className="movie-des"> {this.state.movie.Type}</span>
+                </li>
+                <li>
+                  Runtime :
+                  <span className="movie-des"> {this.state.movie.Runtime}</span>
+                </li>
+              </ul>
+            </th>
+            <button className="exit" onClick={this.backButton}>
+              X
+            </button>
+          </tr>
+        )}
+      </div>
+    );
+  }
 }
 
-export const MovieDetailsPage = withRouter(MovieDetails)
-
-
-
-
+export const MovieDetailsPage = withRouter(MovieDetails);

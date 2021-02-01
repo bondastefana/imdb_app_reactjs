@@ -1,39 +1,96 @@
-/* Background */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
-#background-page {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0px;
-  top: 0px;
-  padding-top: 5%;
-  padding-bottom: 10%;
-
-  background: linear-gradient(
-    242.06deg,
-    #140c0c -10.48%,
-    #643975 40.66%,
-    #000000 100.49%
-  );
-}
-
-#movie-details {
+.movie-details {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 40px;
-  height: 30px;
+  width: 60px;
+  height: 60px;
 }
 
-#movie-description {
-  background-color: #b6bdb44f;
+.movie-description {
+  font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
-
-  margin-left: 50%;
-  margin-top: 50vh;
+  justify-content: space-around;
+  font-size: medium;
+  list-style-type: none;
+  background-color: #b6bdb41e;
+  color: hsl(39, 66%, 57%);
+  margin-left: 0px;
+  margin-top: 5%;
   border-radius: 20px;
+  width: 50vw;
+  height: 40vh;
+  padding-left: 5%;
+}
 
-  width: 30vw;
-  height: 20vh;
+.posters {
+  display: flex;
+  margin: 1%;
+  margin-left: 0px;
+  width: 35vw;
+  height: 45vw;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.movie-title {
+  margin-top: 5%;
+  color: aliceblue;
+  font-weight: 900;
+  padding: 2%;
+  font-size: 30px;
+  font-family: "Poppins", sans-serif;
+}
+
+.loading {
+  color: aliceblue;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.button {
+  margin-top: 20px;
+  padding: 5px;
+  width: 100px;
+  height: 40px;
+  border-radius: 50px;
+  border-style: none;
+  margin-left: 5%;
+  background-color: #b6bdb41e;
+  color: hsl(39, 66%, 57%);
+}
+
+.imdbRating {
+  color: hsl(39, 66%, 57%);
+  margin-top: 10%;
+  padding-top: 10%;
+  padding-left: 5%;
+}
+
+.imdbRating .rating {
+  font-size: 30px;
+}
+
+.movie-des {
+  font-size: 20px;
+  padding-left: 10px;
+  color: white;
+}
+
+.exit {
+  display: flex;
+  justify-content: center;
+  background-color: #b6bdb41e;
+  color: hsl(39, 66%, 57%);
+  border-style: none;
+  border-radius: 50px;
+  font-size: 20px;
+  padding-top: 5px;
+  margin-top: 2%;
+  width: 40px;
+  height: 40px;
 }
