@@ -15,7 +15,7 @@ export class Slider extends React.Component {
   // }
 
   render() {
-    const { movies, categoryName } = this.props
+    const { movies, categoryName } = this.props // din CarouselContainer
 
     return (
       <Container>
@@ -23,7 +23,7 @@ export class Slider extends React.Component {
           <Col xs={12}>
             <div className="category-name">{categoryName}</div>
             <hr />
-            <Carousel navButtonsAlwaysVisible={true} autoPlay={false}>
+            <Carousel navButtonsAlwaysVisible={true}>
               {movies.map((movie, i) => (
                 <Movie key={i} movie={movie} />
               ))}

@@ -1,6 +1,8 @@
 .header {
-  background: rgb(59, 32, 82);
-  background: linear-gradient(90deg, rgba(59, 32, 82, 1) 50%, rgba(210, 200, 228, 1) 100%);
+  /* background: rgb(59, 32, 82);
+  background: linear-gradient(90deg, rgba(59, 32, 82, 1) 50%, rgba(210, 200, 228, 1) 100%); */
+  /* background: linear-gradient(to top right, #993399 -127%, #000000 90%); */
+  background: linear-gradient(to top right, #993399 -127%, #000000 90%);
   padding: 10px auto;
   display: flex;
   position: sticky;

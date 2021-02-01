@@ -29,7 +29,7 @@ export class Header extends React.Component {
       <Container className="header" fluid>
         <Row
           style={
-            userDevice !== 'mobile' ? { width: '100%' } : { width: 'auto' }
+            userDevice !== 'mobile' ? { width: '100%' } : { width: 'auto' } //mobile
           }
         >
           <Col xs={4} md={4} lg={6}>

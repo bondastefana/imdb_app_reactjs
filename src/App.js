@@ -19,9 +19,7 @@ export class App extends React.Component {
           <Route path="/search">
             <SearchPage />
           </Route>
-          <Route path="/">
-            <HomePage />
-          </Route>
+
           <Route path="/login-register">
             <LoginRegisterPage />
           </Route>
@@ -33,6 +31,9 @@ export class App extends React.Component {
           </Route>
           <Route path="/editmovie">
             <EditMoviePage />
+          </Route>
+          <Route path="/">
+            <HomePage />
           </Route>
         </Switch>
       </Router>
