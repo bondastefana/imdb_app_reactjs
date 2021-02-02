@@ -46,17 +46,25 @@ class LoginPage extends React.Component {
             })
         };
 
+        let credentials;
+
         fetch(apiBaseUrl + 'login', payload)
             .then((response) => {
-                if (response.status === 401) {
-                    return console.log("user not found/wrong password")
-                } else if (response.status === 200) {
-                    return console.log("Logged In")
+                if (response.status === 200) {
+                    console.log("Logged In")
+                    return response.json()
+                } else {
+                    return console.log("Wrong Password/Username not Registered!")
                 }
-                else return response.json()
             })
-            .then(window.localStorage.setItem(this.state.accessToken, this.state.value))
-            .catch((err) => console.log(err));;
+            .then(data => credentials = data)
+            .then(() => console.log(credentials.accessToken))
+            .then(() => localStorage.setItem('accessToken', credentials.accessToken))
+            .then(() => this.setState({
+                accessToken: credentials.accestToken,
+                authenticated: !false
+            }))
+            .catch((err) => console.log(err));
     }
 
     render() {
@@ -93,6 +101,7 @@ class RegisterPage extends React.Component {
             data: [],
             username: '',
             password: '',
+            accessToken: '',
             authenticated: false
         };
         this.handleChangeUsername = this.handleChangeUsername.bind(this);
@@ -124,20 +133,24 @@ class RegisterPage extends React.Component {
             })
         };
 
+        let credentials;
+
         fetch(apiBaseUrl + 'register', payload)
             .then((response) => {
-                if (response.status === 409) {
+                if (response.status === 200) {
+                    console.log("Registered")
+                    return response.json()
+                } else {
                     return console.log("Username already existing")
-                } else if (response.status === 200) {
-                    return console.log("Registered")
                 }
-                else return response.json()
             })
-            // .then(data => this.setItem({
-            //     data: data,
-            //     authenticated: true,
-            //     accessToken: data.accessToken
-            // }))
+            .then(data => credentials = data)
+            .then(() => console.log(credentials.accessToken))
+            .then(() => localStorage.setItem('accessToken', credentials.accessToken))
+            .then(() => this.setState({
+                accessToken: credentials.accestToken,
+                authenticated: !false
+            }))
             .catch((err) => console.log(err));
     }
 
