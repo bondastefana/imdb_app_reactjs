@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import UserIcon from "../../assets/UserIcon.svg";
 import PasswordIcon from "../../assets/PasswordIcon.svg";
 import Btn from "../../assets/Btn.svg";
@@ -55,7 +55,6 @@ class LoginPage extends React.Component {
                     return response.json()
                 } else {
                     return console.log("Wrong Password/Username not Registered!")
-                }
             })
             .then(data => credentials = data)
             .then(() => console.log(credentials.accessToken))
@@ -142,7 +141,6 @@ class RegisterPage extends React.Component {
                     return response.json()
                 } else {
                     return console.log("Username already existing")
-                }
             })
             .then(data => credentials = data)
             .then(() => console.log(credentials.accessToken))
