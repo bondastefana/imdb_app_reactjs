@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import UserIcon from "../../assets/UserIcon.svg";
 import PasswordIcon from "../../assets/PasswordIcon.svg";
 import Btn from "../../assets/Btn.svg";
