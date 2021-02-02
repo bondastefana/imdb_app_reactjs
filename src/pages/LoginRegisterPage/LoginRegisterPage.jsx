@@ -46,21 +46,24 @@ class LoginPage extends React.Component {
             })
         };
 
+        let credentials;
+
         fetch(apiBaseUrl + 'login', payload)
             .then((response) => {
-                if (response.status === 401) {
-                    return console.log("user not found/wrong password")
-                } else if (response.status === 200) {
-                    return console.log("Logged In")
-                }
-                else return response.json()
+                if (response.status === 200) {
+                    console.log("Logged In")
+                    return response.json()
+                } else {
+                    return console.log("Wrong Password/Username not Registered!")
             })
-            // .then(data => this.setItem({
-            //     data: data,
-            //     authenticated: true,
-            //     accessToken: data.accessToken
-            // }))
-            .catch((err) => console.log(err));;
+            .then(data => credentials = data)
+            .then(() => console.log(credentials.accessToken))
+            .then(() => localStorage.setItem('accessToken', credentials.accessToken))
+            .then(() => this.setState({
+                accessToken: credentials.accestToken,
+                authenticated: !false
+            }))
+            .catch((err) => console.log(err));
     }
 
     render() {
@@ -97,6 +100,7 @@ class RegisterPage extends React.Component {
             data: [],
             username: '',
             password: '',
+            accessToken: '',
             authenticated: false
         };
         this.handleChangeUsername = this.handleChangeUsername.bind(this);
@@ -128,20 +132,23 @@ class RegisterPage extends React.Component {
             })
         };
 
+        let credentials;
+
         fetch(apiBaseUrl + 'register', payload)
             .then((response) => {
-                if (response.status === 409) {
+                if (response.status === 200) {
+                    console.log("Registered")
+                    return response.json()
+                } else {
                     return console.log("Username already existing")
-                } else if (response.status === 200) {
-                    return console.log("Registered")
-                }
-                else return response.json()
             })
-            // .then(data => this.setItem({
-            //     data: data,
-            //     authenticated: true,
-            //     accessToken: data.accessToken
-            // }))
+            .then(data => credentials = data)
+            .then(() => console.log(credentials.accessToken))
+            .then(() => localStorage.setItem('accessToken', credentials.accessToken))
+            .then(() => this.setState({
+                accessToken: credentials.accestToken,
+                authenticated: !false
+            }))
             .catch((err) => console.log(err));
     }
 
@@ -199,12 +206,12 @@ export class LoginRegisterPage extends React.Component {
                 <div classsName='toggle-nav'>
                     {this.state.active ?
                         <div>
-                            <img type='button' src={Btn} onClick={this.handleClick} />
-                            <img type='button' src={BtnBlank} onClick={this.handleClick} />
+                            <img type='button' src={BtnBlankReg} onClick={this.handleClick} />
+                            <img type='button' src={BtnReg} onClick={this.handleClick} />
                         </div> :
                         <div>
-                            <img type='button' src={BtnReg} onClick={this.handleClick} />
-                            <img type='button' src={BtnBlankReg} onClick={this.handleClick} />
+                            <img type='button' src={Btn} onClick={this.handleClick} />
+                            <img type='button' src={BtnBlank} onClick={this.handleClick} />
                         </div>
                     }
                 </div>
