@@ -16,24 +16,23 @@ export class App extends React.Component {
       <Router>
         <Header />
         <Switch>
-          <Route path="/search">
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Route exact path="/search">
             <SearchPage />
           </Route>
-
-          <Route path="/login-register">
+          <Route exact path="/login-register">
             <LoginRegisterPage />
           </Route>
-          <Route path="/movie/:id">
+          <Route exact path="/movie/:id">
             <MovieDetailsPage />
           </Route>
-          <Route path="/addmovie">
+          <Route exact path="/addmovie">
             <AddMoviePage />
           </Route>
-          <Route path="/editmovie">
+          <Route exact path="/editmovie">
             <EditMoviePage />
-          </Route>
-          <Route path="/">
-            <HomePage />
           </Route>
         </Switch>
       </Router>

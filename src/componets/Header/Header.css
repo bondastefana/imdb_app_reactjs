@@ -24,7 +24,7 @@
 }
 
 .app-name:hover {
-  text-decoration: none;
+  text-decoration: none !important;
   transition-delay: 0.1s;
 }
 
@@ -44,14 +44,49 @@
   flex-direction: column;
 }
 
+.logout-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 0 !important;
+}
+
 .login-register {
   padding-right: 5px;
   text-align: right;
   color: white;
   text-decoration: none;
+  margin: 0;
 }
 
 .login-register:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.logout {
+  padding-right: 5px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  margin: 0;
+  cursor: pointer;
+}
+
+.logout:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.add-movie {
+  padding-right: 5px;
+  text-align: right;
+  color: white;
+  text-decoration: none;
+  margin: 0;
+}
+
+.add-movie:hover {
   color: white;
   text-decoration: none;
 }
