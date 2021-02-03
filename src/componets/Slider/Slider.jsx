@@ -73,15 +73,9 @@ class Movie extends React.Component {
     }
 
     const handleMovieClick = (event) => {
+      console.log(movie._id)
       //path cu MovieDetails cu id-ul din url de pe care s-a dat click
-      fetch(`${baseURL}/movies/${movie._id}`, { method: 'GET' })
-        .then((response) => {
-          return response.json()
-        })
-        .then((parsedResponse) => console.log(parsedResponse))
-        .catch((error) => {
-          throw new Error(error)
-        })
+      window.location.href = `/movie/${movie._id}`
     }
 
     return (
