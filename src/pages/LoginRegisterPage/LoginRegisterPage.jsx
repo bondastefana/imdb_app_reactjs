@@ -54,7 +54,8 @@ class LoginPage extends React.Component {
                     console.log("Logged In")
                     return response.json()
                 } else {
-                    return console.log("Wrong Password/Username not Registered!")
+                    return console.logq("Wrong Password/Username not Registered!")
+                }
             })
             .then(data => credentials = data)
             .then(() => console.log(credentials.accessToken))
@@ -73,20 +74,39 @@ class LoginPage extends React.Component {
                     <div className="login-form">
                         <div className="userData">
                             <span>
-                                <img src={UserIcon} />
+                                <img
+                                    src={UserIcon}
+                                />
                             </span>
-                            <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChangeUsername} />
+                            <input
+                                type="text"
+                                name="username"
+                                placeholder="Username"
+                                value={this.state.username}
+                                onChange={this.handleChangeUsername}
+                            />
                         </div>
                         <div className="userData">
                             <span>
-                                <img src={PasswordIcon} />
+                                <img
+                                    src={PasswordIcon}
+                                />
                             </span>
-                            <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChangePassword} />
+                            <input
+                                type="password"
+                                name="password"
+                                placeholder="Password"
+                                value={this.state.password}
+                                onChange={this.handleChangePassword}
+                            />
                         </div>
                     </div>
                 </div>
                 <div className="submit-login">
-                    <img src={Btn} onClick={(event) => this.handleClick(event)} />
+                    <img
+                        src={Btn}
+                        onClick={(event) => this.handleClick(event)}
+                    />
                 </div>
             </div>
         );
@@ -141,6 +161,7 @@ class RegisterPage extends React.Component {
                     return response.json()
                 } else {
                     return console.log("Username already existing")
+                }
             })
             .then(data => credentials = data)
             .then(() => console.log(credentials.accessToken))
@@ -159,26 +180,51 @@ class RegisterPage extends React.Component {
                     <div className="register-form">
                         <div className="userData">
                             <span>
-                                <img src={UserIcon} />
+                                <img
+                                    src={UserIcon}
+                                />
                             </span>
-                            <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChangeUsername} />
+                            <input
+                                type="text"
+                                name="username"
+                                placeholder="Username"
+                                value={this.state.username}
+                                onChange={this.handleChangeUsername}
+                            />
                         </div>
                         <div className="userData">
                             <span>
-                                <img src={PasswordIcon} />
+                                <img
+                                    src={PasswordIcon}
+                                />
                             </span>
-                            <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChangePassword} />
+                            <input
+                                type="password"
+                                name="password"
+                                placeholder="Password"
+                                value={this.state.password}
+                                onChange={this.handleChangePassword}
+                            />
                         </div>
                         <div className="userData">
                             <span>
-                                <img src={PasswordIcon} />
+                                <img
+                                    src={PasswordIcon}
+                                />
                             </span>
-                            <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
+                            <input
+                                type="password"
+                                name="confirmPassword"
+                                placeholder="Confirm Password"
+                                required />
                         </div>
                     </div>
                 </div>
                 <div className="submit-register">
-                    <img src={BtnReg} onClick={(event) => this.handleClick(event)} />
+                    <img
+                        src={BtnReg}
+                        onClick={(event) => this.handleClick(event)}
+                    />
                 </div>
             </div>
         );
@@ -206,12 +252,28 @@ export class LoginRegisterPage extends React.Component {
                 <div classsName='toggle-nav'>
                     {this.state.active ?
                         <div>
-                            <img type='button' src={BtnBlankReg} onClick={this.handleClick} />
-                            <img type='button' src={BtnReg} onClick={this.handleClick} />
+                            <img
+                                type='button'
+                                src={BtnBlankReg}
+                                onClick={this.handleClick}
+                            />
+                            <img
+                                type='button'
+                                src={BtnReg}
+                                onClick={this.handleClick}
+                            />
                         </div> :
                         <div>
-                            <img type='button' src={Btn} onClick={this.handleClick} />
-                            <img type='button' src={BtnBlank} onClick={this.handleClick} />
+                            <img
+                                type='button'
+                                src={Btn}
+                                onClick={this.handleClick}
+                            />
+                            <img
+                                type='button'
+                                src={BtnBlank}
+                                onClick={this.handleClick}
+                            />
                         </div>
                     }
                 </div>
