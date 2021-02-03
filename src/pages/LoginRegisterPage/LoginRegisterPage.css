@@ -9,8 +9,8 @@ input{
     border-style: none;
     background-color: rgba(0, 0, 0, 0);
 }
-/* body{
-    background-image: url("../../assets/Background.svg");
+
+body{
     background-size: cover;
     display: flex;
     justify-content: center;
