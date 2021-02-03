@@ -33,6 +33,14 @@ class LoginPage extends React.Component {
         })
     }
 
+    componentDidMount() {
+        const isAuthenticated = localStorage.getItem('accessToken')
+        if (isAuthenticated) {
+            console.log('Loged in')
+            history.push('/')
+        }
+    }
+
     handleClick(event) {
         var apiBaseUrl = "https://movies-app-siit.herokuapp.com/auth/"
         const payload = {
@@ -128,6 +136,14 @@ class RegisterPage extends React.Component {
         this.setState({
             password: event.target.value
         })
+    }
+
+    componentDidMount() {
+        const isAuthenticated = localStorage.getItem('accessToken')
+        if (isAuthenticated) {
+            console.log('Loged in')
+            history.push('/')
+        }
     }
 
     handleClick(event) {
