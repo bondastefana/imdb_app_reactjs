@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { HomePage } from './pages/HomePage/HomePage'
-import { SearchPage } from './pages/SearchPage/SearchPage'
+import  SearchPage  from './pages/SearchPage/SearchPage'
 import { LoginRegisterPage } from './pages/LoginRegisterPage/LoginRegisterPage'
 import { Header } from './componets/Header/Header'
 import { MovieDetailsPage } from './pages/MovieDetailsPage/MovieDetailPage'
@@ -16,24 +16,23 @@ export class App extends React.Component {
       <Router>
         <Header />
         <Switch>
-          <Route path="/search">
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Route exact path="/search">
             <SearchPage />
           </Route>
-
-          <Route path="/login-register">
+          <Route exact path="/login-register">
             <LoginRegisterPage />
           </Route>
-          <Route path="/movie/:id">
+          <Route exact path="/movie/:id">
             <MovieDetailsPage />
           </Route>
-          <Route path="/addmovie">
+          <Route exact path="/addmovie">
             <AddMoviePage />
           </Route>
-          <Route path="/editmovie">
+          <Route exact path="/editmovie">
             <EditMoviePage />
-          </Route>
-          <Route path="/">
-            <HomePage />
           </Route>
         </Switch>
       </Router>
