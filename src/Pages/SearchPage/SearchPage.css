@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.searchBox{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    border-radius: 5%;
+    color: purple;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.searchBox p{
+    font-weight: 600;
+    margin-top: 5px;
+}
+.searchBox input{
+    text-align: center;
+}
+
+.searchButton{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: purple;
+    background-color: white;
+    font-weight: bold;
+}
+
+.searchButton:hover{
+    color: white;
+    background-color: purple;
+    font-weight: bold;
+}
+
+.movieHeading{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.moviesContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.oneMovieContainer{
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    background-color: white;
+    border-radius: 5%;
+    margin: 5px 5px;
+    padding: 10px;
+}
+.oneMovieContainer img{
+    width: 350px;
+    height: 450px;
+}
+
+.oneMovieContainer p{
+    font-weight: bold;
+    color: purple;
+}
+
+.mainContainerSearch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-control{
+    margin: 10px 0px;
+}
