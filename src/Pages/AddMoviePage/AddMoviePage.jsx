@@ -17,10 +17,13 @@ class AddMoviePage extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  requireAuth(nextState, replace) {
-    if (!this.authenticated())
-      // pseudocode - SYNCHRONOUS function (cannot be async without extra callback parameter to this function)
-      replace("/login");
+  componentDidMount() {
+    const isAuthenticated = localStorage.getItem('accessToken')
+    console.log(isAuthenticated)
+
+    if(!isAuthenticated){
+      window.location.href="/"
+    }
   }
 
   handleClick(event) {
@@ -114,6 +117,7 @@ class AddMoviePage extends React.Component {
           />
           <div>
             <button className="add-button" type="submit" onClick={this.handleClick}>
+
               Add
             </button>
           </div>

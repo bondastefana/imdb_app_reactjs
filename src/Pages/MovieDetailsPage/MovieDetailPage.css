@@ -67,20 +67,27 @@
 }
 
 .imdbRating {
-  color: hsl(39, 66%, 57%);
+  color: hsl(0, 0%, 96%);
   margin-top: 10%;
   padding-top: 3%;
   padding-left: 5%;
 }
 
 .imdbRating .rating {
+  color: hsl(39, 66%, 57%);
   font-size: 30px;
 }
 
 .movie-des {
-  font-size: 20px;
+  font-size: 17px;
   padding-left: 10px;
-  color: white;
+  color: rgb(202, 202, 202);
+}
+
+.movie-des-plot {
+  font-size: 15px;
+  padding-left: 10px;
+  color: rgb(202, 202, 202);
 }
 
 .exit {
@@ -95,9 +102,4 @@
   margin-top: 2%;
   width: 40px;
   height: 40px;
-}
-
-.movie-plot {
-  padding-left: 10px;
-  padding-right: 10px;
 }

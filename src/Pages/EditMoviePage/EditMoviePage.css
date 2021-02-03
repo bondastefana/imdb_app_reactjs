@@ -1,15 +1,15 @@
 
 
-.addmovie {
-    width: 1000px;
-    height: 600px;
+.editmovie {
+    width: 100%;
     position: relative;
     
 }
 
 .title {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     font-size: 1em;
+
        left: 70%;
         padding: 0.5em;
         border-radius:10px;
@@ -20,11 +20,6 @@
         display:block;
         outline: none;
         margin: 5px;
-}
-
-.upload {
-    color:white;
-    left: 0%;
 }
 
 .year {
@@ -86,6 +81,7 @@
         display:block;
         outline: none;
 }
+
 
 
 

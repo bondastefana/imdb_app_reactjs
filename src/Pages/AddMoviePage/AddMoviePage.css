@@ -10,7 +10,7 @@
 .title {
     background-color: white;
     font-size: 1em;
-       left: 100%;
+       left: 80%;
         padding: 0.5em;
         border-radius:10px;
         right: auto;
@@ -89,6 +89,7 @@
 
 
 
+
 .add-button {
     text-align:center;
     font-size: 1em;
@@ -96,7 +97,8 @@
    outline: none;
    padding: 0.5em;
    border-radius:10px;
-   width: 60px;
+   width: 90px;
    height: 40px;
    position:relative;
 }
+

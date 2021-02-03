@@ -71,8 +71,10 @@ class EditMoviePage extends React.Component {
 
   render() {
     return (
+
       <div className="addmovie">
         <form className="add-form-movie" id="add-form">
+
           <input
             className="title"
             name="title"

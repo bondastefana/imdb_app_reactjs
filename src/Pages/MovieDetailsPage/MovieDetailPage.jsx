@@ -83,7 +83,7 @@ class MovieDetails extends React.Component {
                 </li>
                 <li>
                   Plot :
-                  <span className="movie-des"> {this.state.movie.Plot}</span>
+                  <span className="movie-des-plot"> {this.state.movie.Plot}</span>
                 </li>
                 <li>
                   Genre :
@@ -104,6 +104,14 @@ class MovieDetails extends React.Component {
                 <li>
                   Actors:
                   <span className="movie-des"> {this.state.movie.Actors}</span>
+                </li>
+                <li>
+                  Awards:
+                  <span className="movie-des"> {this.state.movie.Awards}</span>
+                </li>
+                <li>
+                  Production:
+                  <span className="movie-des"> {this.state.movie.Production}</span>
                 </li>
               </ul>
             </th>
