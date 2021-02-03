@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import UserIcon from "../../assets/UserIcon.svg";
 import PasswordIcon from "../../assets/PasswordIcon.svg";
 import Btn from "../../assets/Btn.svg";
@@ -7,11 +7,12 @@ import BtnReg from "../../assets/BtnReg.svg";
 import BtnBlankReg from "../../assets/BtnBlankReg.svg";
 import './LoginRegisterPage.css'
 
+
+
 class LoginPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
             username: '',
             password: '',
             accessToken: '',
@@ -45,31 +46,31 @@ class LoginPage extends React.Component {
                 'password': this.state.password
             })
         };
+        const { username, password } = this.state;
 
-        let credentials;
-
-        fetch(apiBaseUrl + 'login', payload)
-            .then((response) => {
-                if (response.status === 200) {
-                    alert("Logged In! You'll be redirected on Home")
-                    return response.json()
-                } else {
-                    return alert("Wrong Password/Username not Registered!")
-                }
-            })
-            .then(data => credentials = data)
-            .then(() => console.log(credentials.accessToken))
-            .then(() => localStorage.setItem('accessToken', credentials.accessToken))
-            .then(() => {
-                this.setState({
-                    accessToken: credentials.accestToken,
-                    authenticated: !false
+        if (username && password) {
+            fetch(apiBaseUrl + 'login', payload)
+                .then((response) => {
+                    if (response.status === 200) {
+                        alert("Logged In! You'll be redirected on Home")
+                        return response.json()
+                    } else {
+                        return alert("Wrong Password/Username not Registered!")
+                    }
+                }).then((data) => {
+                    this.setState({
+                        accessToken: data.accestToken,
+                        authenticated: true
+                    })
+                    localStorage.setItem('accessToken', data.accessToken)
+                    window.location.href = "/"
                 })
-                window.location.href = "/"
-            })
-            .catch((err) => console.log(err));
-
+                .catch((err) => console.log(err));
+        } else {
+            alert("Cannot be Empty")
+        }
     }
+
     render() {
         return (
             <div>
@@ -84,6 +85,7 @@ class LoginPage extends React.Component {
                                         />
                                     </span>
                                     <input
+                                        autocomplete="off"
                                         type="text"
                                         name="username"
                                         placeholder="Username"
@@ -98,12 +100,14 @@ class LoginPage extends React.Component {
                                         />
                                     </span>
                                     <input
+                                        autocomplete="off"
                                         type="password"
                                         name="password"
                                         placeholder="Password"
                                         value={this.state.password}
                                         onChange={this.handleChangePassword}
                                     />
+                                    <p style={(this.state.username && this.state.password) ? { display: 'none' } : { display: 'block' }}> Must fill all the form!</p>
                                 </div>
                             </div>
                         </div>
@@ -120,18 +124,19 @@ class LoginPage extends React.Component {
     }
 }
 
-class RegisterPage extends React.Component {
+class RegisterPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
             username: '',
             password: '',
+            confirmPassword: '',
             accessToken: '',
             authenticated: false
         };
         this.handleChangeUsername = this.handleChangeUsername.bind(this);
         this.handleChangePassword = this.handleChangePassword.bind(this);
+        this.handleChangeConfirmPassword = this.handleChangeConfirmPassword.bind(this);
     }
 
     handleChangeUsername(event) {
@@ -143,6 +148,12 @@ class RegisterPage extends React.Component {
     handleChangePassword(event) {
         this.setState({
             password: event.target.value
+        })
+    }
+
+    handleChangeConfirmPassword(event) {
+        this.setState({
+            confirmPassword: event.target.value
         })
     }
 
@@ -159,27 +170,29 @@ class RegisterPage extends React.Component {
             })
         };
 
-        let credentials;
-        fetch(apiBaseUrl + 'register', payload)
-            .then((response) => {
-                if (response.status === 200) {
-                    alert("Registered, you'll be redirected on Home")
-                    return response.json()
-                } else {
-                    return alert("Username already existing")
-                }
-            })
-            .then(data => credentials = data)
-            .then(() => console.log(credentials.accessToken))
-            .then(() => localStorage.setItem('accessToken', credentials.accessToken))
-            .then(() => {
-                this.setState({
-                    accessToken: credentials.accestToken,
-                    authenticated: !false
+        const { password, confirmPassword } = this.state;
+
+        if (password !== confirmPassword) {
+            alert("Password Doesn't Match!")
+        } else {
+            fetch(apiBaseUrl + 'register', payload)
+                .then((response) => {
+                    if (response.status === 200) {
+                        alert("Registered, you'll be redirected on Home")
+                        return response.json()
+                    } else {
+                        return alert("Username already existing")
+                    }
+                }).then((data) => {
+                    this.setState({
+                        accessToken: data.accestToken,
+                        authenticated: true
+                    })
+                    localStorage.setItem('accessToken', data.accessToken)
+                    window.location.href = "/"
                 })
-                window.location.href = "/"
-            })
-            .catch((err) => console.log(err));
+                .catch((err) => console.log(err));
+        }
     }
 
 
@@ -197,6 +210,7 @@ class RegisterPage extends React.Component {
                                         />
                                     </span>
                                     <input
+                                        autocomplete="off"
                                         type="text"
                                         name="username"
                                         placeholder="Username"
@@ -211,6 +225,7 @@ class RegisterPage extends React.Component {
                                         />
                                     </span>
                                     <input
+                                        autocomplete="off"
                                         type="password"
                                         name="password"
                                         placeholder="Password"
@@ -225,11 +240,14 @@ class RegisterPage extends React.Component {
                                         />
                                     </span>
                                     <input
+                                        autocomplete="off"
                                         type="password"
                                         name="confirmPassword"
                                         placeholder="Confirm Password"
-                                        required
+                                        value={this.state.confirmPassword}
+                                        onChange={this.handleChangeConfirmPassword}
                                     />
+                                    <p style={this.state.password !== this.state.confirmPassword ? { display: 'block' } : { display: 'none' }}> Password Doesn't Match!</p>
                                 </div>
                             </div>
                         </div>

@@ -4,10 +4,14 @@
     box-sizing: border-box;
 }
 
-input {
+.userData input {
     color: white;
     border-style: none;
     background-color: rgba(0, 0, 0, 0);
+}
+
+.userData p{
+    color:azure;
 }
 
 
