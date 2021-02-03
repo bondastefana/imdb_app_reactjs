@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MovieList from '../../componets/SearchComponents/MovieList';
 import MovieListHeading from '../../componets/SearchComponents/MovieListHeading';
 import SearchBox from '../../componets/SearchComponents/SearchBox';
-
+import './SearchPage.css';
 
 const SearchPage = () => {
 
@@ -60,11 +60,11 @@ const SearchPage = () => {
 
   return (
     <div className="container-fluid movie-app">
-      <div className='row d-flex align-items-center mt-4 mb-4'>
-        <MovieListHeading heading='Movies'></MovieListHeading>
+      <div className='mainContainerSearch'>
+        <MovieListHeading heading='Use the search box to find your favourite movies!'></MovieListHeading>
         <SearchBox clickHandler={clickHandler} setTitleValue={setTitleValue} setTypeValue={setTypeValue} setVotesValue={setVotesValue} setRatingValue={setRatingValue} setCountryValue={setCountryValue} setLanguageValue={setLanguageValue} setGenreValue={setGenreValue} setRuntimeValue={setRuntimeValue} setYearValue={setYearValue} />
       </div>
-      <div className="row"><MovieList movies={movies} />
+      <div className="moviesContainer"><MovieList movies={movies} />
       </div>
     </div>
   );
