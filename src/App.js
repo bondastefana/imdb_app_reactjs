@@ -1,9 +1,9 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { HomePage } from './pages/HomePage/HomePage'
-import  SearchPage  from './pages/SearchPage/SearchPage'
+import SearchPage from './pages/SearchPage/SearchPage'
 import { LoginRegisterPage } from './pages/LoginRegisterPage/LoginRegisterPage'
-import { Header } from './componets/Header/Header'
+import { HeaderWithRouter } from './componets/Header/Header'
 import { MovieDetailsPage } from './pages/MovieDetailsPage/MovieDetailPage'
 import { AddMoviePage } from './pages/AddMoviePage/AddMoviePage'
 import { EditMoviePage } from './pages/EditMoviePage/EditMoviePage'
@@ -14,7 +14,7 @@ export class App extends React.Component {
   render() {
     return (
       <Router>
-        <Header />
+        <HeaderWithRouter />
         <Switch>
           <Route exact path="/">
             <HomePage />
