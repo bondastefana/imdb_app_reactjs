@@ -12,9 +12,6 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-image: url("./assets/Background.svg"); */
-  background: #592547;
-  background-size: cover;
 }
 
 * {
@@ -23,6 +20,7 @@ body {
 
 #root {
   background: linear-gradient(to top right, #993399 -127%, #000000 90%);
+  min-height: 100vh;
 }
 
 code {

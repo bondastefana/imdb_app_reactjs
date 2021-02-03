@@ -1,9 +1,8 @@
-import './App.css';
 import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import MovieList from './components/MovieList';
-import MovieListHeading from './components/MovieListHeading';
-import SearchBox from './components/SearchBox';
+import MovieList from '../../componets/SearchComponents/MovieList';
+import MovieListHeading from '../../componets/SearchComponents/MovieListHeading';
+import SearchBox from '../../componets/SearchComponents/SearchBox';
 
 
 const SearchPage = () => {
@@ -71,4 +70,4 @@ const SearchPage = () => {
   );
 }
 
-export {SearchPage};
+export default SearchPage;
