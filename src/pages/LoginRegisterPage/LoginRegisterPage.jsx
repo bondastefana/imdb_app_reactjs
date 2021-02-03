@@ -46,25 +46,16 @@ class LoginPage extends React.Component {
             })
         };
 
-        let credentials;
-
         fetch(apiBaseUrl + 'login', payload)
-            .then((response) => {
-                if (response.status === 200) {
-                    console.log("Logged In")
-                    return response.json()
-                } else {
-                    return console.logq("Wrong Password/Username not Registered!")
-                }
+            .then((response) => response.json())
+            .then((data) => {
+                localStorage.setItem('accessToken', data.accessToken)
+                window.location.href = '/'
             })
-            .then(data => credentials = data)
-            .then(() => console.log(credentials.accessToken))
-            .then(() => localStorage.setItem('accessToken', credentials.accessToken))
-            .then(() => this.setState({
-                accessToken: credentials.accestToken,
-                authenticated: !false
-            }))
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                console.log(err)
+                console.log("Wrong Password/Username not Registered!")
+            })
     }
 
     render() {
@@ -155,23 +146,17 @@ class RegisterPage extends React.Component {
         let credentials;
 
         fetch(apiBaseUrl + 'register', payload)
-            .then((response) => {
-                if (response.status === 200) {
-                    console.log("Registered")
-                    return response.json()
-                } else {
-                    return console.log("Username already existing")
-                }
+            .then((response) => response.json())
+            .then((data) => {
+                localStorage.setItem('accessToken', data.accessToken)
+                window.location.href = '/'
             })
-            .then(data => credentials = data)
-            .then(() => console.log(credentials.accessToken))
-            .then(() => localStorage.setItem('accessToken', credentials.accessToken))
-            .then(() => this.setState({
-                accessToken: credentials.accestToken,
-                authenticated: !false
-            }))
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                console.log(err)
+                console.log("Username already Exist")
+            })
     }
+
 
     render() {
         return (
@@ -227,7 +212,7 @@ class RegisterPage extends React.Component {
                     />
                 </div>
             </div>
-        );
+        )
     }
 }
 
