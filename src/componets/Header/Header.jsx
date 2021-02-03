@@ -17,8 +17,8 @@ export class Header extends React.Component {
     if (event.key === 'Enter') {
       // console.log('Change the State with ', event.target.value)
       let searchedMovie = event.target.value
+      event.target.value = ''
       history.push(`/search/${searchedMovie}`)
-      console.log(this.props)
     }
   }
 
