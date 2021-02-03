@@ -19,7 +19,7 @@ export class App extends React.Component {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route exact path="/search">
+          <Route exact path="/search/:title">
             <SearchPage />
           </Route>
           <Route exact path="/login-register">

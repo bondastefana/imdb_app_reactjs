@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import MovieList from '../../componets/SearchComponents/MovieList';
 import MovieListHeading from '../../componets/SearchComponents/MovieListHeading';
 import SearchBox from '../../componets/SearchComponents/SearchBox';
 import './SearchPage.css';
+import {useParams} from 'react-router-dom';
 
 const SearchPage = () => {
 
@@ -17,16 +18,18 @@ const SearchPage = () => {
   const [genreValue, setGenreValue] = useState('');
   const [runtimeValue, setRuntimeValue] = useState('');
   const [yearValue, setYearValue] = useState('');
+  const [initialState, setInitialState] = useState(1);
 
-  const filtersArray = [];
-  filtersArray.push(titleValue, typeValue, votesValue, ratingValue, countryValue, languageValue, genreValue, runtimeValue, yearValue);
+  const filtersArray = [titleValue, typeValue, votesValue, ratingValue, countryValue, languageValue, genreValue, runtimeValue, yearValue];
   const optionArray = ['Title', 'Type', 'imdbVotes', 'imdbRating', 'Country', 'Language', 'Genre', 'Runtime', 'Year'];
 
+  const {title} = useParams();
 
+  const urlFromHomePage = `https://movies-app-siit.herokuapp.com/movies?Title=${title}`
 
   function buildUrl() {
     let baseUrl = 'https://movies-app-siit.herokuapp.com/movies?';
-    for (let i = 0; i < 9; i++) {
+    for (var i = 0; i < 9; i++) {
       if (filtersArray[i] !== '') {
         baseUrl += `${optionArray[i]}=${filtersArray[i]}&`;
       }
@@ -42,6 +45,10 @@ const SearchPage = () => {
 
     setMovies(responseJson.results);
   }
+
+  useEffect(() =>{
+    getMovieRequest(urlFromHomePage);
+  }, [initialState, urlFromHomePage]);
 
 
   // Varianta atunci cand userul da click pe butonul de cautare
