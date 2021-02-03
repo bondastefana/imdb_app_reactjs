@@ -10,13 +10,48 @@ input {
     background-color: rgba(0, 0, 0, 0);
 }
 
-.base-container {
+
+.form-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5%;
+    background-color: #ffffff24;
+    margin: auto;
+    width: 50%;
+    padding: 100px;
+    margin-top: 15px;
+}
+
+.form-nav{
+    margin-top: 20px;
+    width:50%;
+    padding:10px;
+}
+.form-render{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    background-color: #00000045;
-    height: 80vh;
-    width: 90vw;
-    border-radius: 5%;
+    height: 63vh;
+
+}
+.form {
+    padding: 100px;
+}
+
+input { 
+    text-align: center; 
+}
+
+.form-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    padding:100px;
+}
+
+:focus {
+    outline: none;
+
 }

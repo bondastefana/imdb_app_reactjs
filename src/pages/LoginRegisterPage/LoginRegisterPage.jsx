@@ -46,54 +46,70 @@ class LoginPage extends React.Component {
             })
         };
 
-        fetch(apiBaseUrl + 'login', payload)
-            .then((response) => response.json())
-            .then((data) => {
-                localStorage.setItem('accessToken', data.accessToken)
-                window.location.href = '/'
-            })
-            .catch((err) => {
-                console.log(err)
-                console.log("Wrong Password/Username not Registered!")
-            })
-    }
+        let credentials;
 
+        fetch(apiBaseUrl + 'login', payload)
+            .then((response) => {
+                if (response.status === 200) {
+                    alert("Logged In! You'll be redirected on Home")
+                    return response.json()
+                } else {
+                    return alert("Wrong Password/Username not Registered!")
+                }
+            })
+            .then(data => credentials = data)
+            .then(() => console.log(credentials.accessToken))
+            .then(() => localStorage.setItem('accessToken', credentials.accessToken))
+            .then(() => {
+                this.setState({
+                    accessToken: credentials.accestToken,
+                    authenticated: !false
+                })
+                window.location.href = "/"
+            })
+            .catch((err) => console.log(err));
+
+    }
     render() {
         return (
             <div>
-                <div className="content">
-                    <div className="login-form">
-                        <div className="userData">
-                            <span>
-                                <img
-                                    src={UserIcon}
-                                />
-                            </span>
-                            <input
-                                type="text"
-                                name="username"
-                                placeholder="Username"
-                                value={this.state.username}
-                                onChange={this.handleChangeUsername}
-                            />
-                        </div>
-                        <div className="userData">
-                            <span>
-                                <img
-                                    src={PasswordIcon}
-                                />
-                            </span>
-                            <input
-                                type="password"
-                                name="password"
-                                placeholder="Password"
-                                value={this.state.password}
-                                onChange={this.handleChangePassword}
-                            />
+                <div className="form">
+                    <div>
+                        <div className="form-input">
+                            <div >
+                                <div className="userData">
+                                    <span>
+                                        <img
+                                            src={UserIcon}
+                                        />
+                                    </span>
+                                    <input
+                                        type="text"
+                                        name="username"
+                                        placeholder="Username"
+                                        value={this.state.username}
+                                        onChange={this.handleChangeUsername}
+                                    />
+                                </div>
+                                <div className="userData">
+                                    <span>
+                                        <img
+                                            src={PasswordIcon}
+                                        />
+                                    </span>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        placeholder="Password"
+                                        value={this.state.password}
+                                        onChange={this.handleChangePassword}
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className="submit-login">
+                <div className="form-footer">
                     <img
                         src={Btn}
                         onClick={(event) => this.handleClick(event)}
@@ -144,75 +160,89 @@ class RegisterPage extends React.Component {
         };
 
         let credentials;
-
         fetch(apiBaseUrl + 'register', payload)
-            .then((response) => response.json())
-            .then((data) => {
-                localStorage.setItem('accessToken', data.accessToken)
-                window.location.href = '/'
+            .then((response) => {
+                if (response.status === 200) {
+                    alert("Registered, you'll be redirected on Home")
+                    return response.json()
+                } else {
+                    return alert("Username already existing")
+                }
             })
-            .catch((err) => {
-                console.log(err)
-                console.log("Username already Exist")
+            .then(data => credentials = data)
+            .then(() => console.log(credentials.accessToken))
+            .then(() => localStorage.setItem('accessToken', credentials.accessToken))
+            .then(() => {
+                this.setState({
+                    accessToken: credentials.accestToken,
+                    authenticated: !false
+                })
+                window.location.href = "/"
             })
+            .catch((err) => console.log(err));
     }
 
 
     render() {
         return (
             <div>
-                <div className="content">
-                    <div className="register-form">
-                        <div className="userData">
-                            <span>
-                                <img
-                                    src={UserIcon}
-                                />
-                            </span>
-                            <input
-                                type="text"
-                                name="username"
-                                placeholder="Username"
-                                value={this.state.username}
-                                onChange={this.handleChangeUsername}
-                            />
-                        </div>
-                        <div className="userData">
-                            <span>
-                                <img
-                                    src={PasswordIcon}
-                                />
-                            </span>
-                            <input
-                                type="password"
-                                name="password"
-                                placeholder="Password"
-                                value={this.state.password}
-                                onChange={this.handleChangePassword}
-                            />
-                        </div>
-                        <div className="userData">
-                            <span>
-                                <img
-                                    src={PasswordIcon}
-                                />
-                            </span>
-                            <input
-                                type="password"
-                                name="confirmPassword"
-                                placeholder="Confirm Password"
-                                required />
+                <div className="form">
+                    <div>
+                        <div className="form-input">
+                            <div >
+                                <div className="userData">
+                                    <span>
+                                        <img
+                                            src={UserIcon}
+                                        />
+                                    </span>
+                                    <input
+                                        type="text"
+                                        name="username"
+                                        placeholder="Username"
+                                        value={this.state.username}
+                                        onChange={this.handleChangeUsername}
+                                    />
+                                </div>
+                                <div className="userData">
+                                    <span>
+                                        <img
+                                            src={PasswordIcon}
+                                        />
+                                    </span>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        placeholder="Password"
+                                        value={this.state.password}
+                                        onChange={this.handleChangePassword}
+                                    />
+                                </div>
+                                <div className="userData">
+                                    <span>
+                                        <img
+                                            src={PasswordIcon}
+                                        />
+                                    </span>
+                                    <input
+                                        type="password"
+                                        name="confirmPassword"
+                                        placeholder="Confirm Password"
+                                        required
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className="submit-register">
+                <div className="form-footer">
                     <img
                         src={BtnReg}
                         onClick={(event) => this.handleClick(event)}
                     />
                 </div>
             </div>
-        )
+        );
     }
 }
 
@@ -220,7 +250,7 @@ export class LoginRegisterPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            active: true,
+            active: false,
         };
         this.handleClick = this.handleClick.bind(this);
     }
@@ -233,8 +263,8 @@ export class LoginRegisterPage extends React.Component {
 
     render() {
         return (
-            <div className="base-container" >
-                <div classsName='toggle-nav'>
+            <div className="form-container" >
+                <div classsName='form-nav'>
                     {this.state.active ?
                         <div>
                             <img
@@ -262,7 +292,7 @@ export class LoginRegisterPage extends React.Component {
                         </div>
                     }
                 </div>
-                <div className="login-register">
+                <div className="form-render">
                     {this.state.active ? <RegisterPage /> : <LoginPage />}
                 </div>
             </div>
