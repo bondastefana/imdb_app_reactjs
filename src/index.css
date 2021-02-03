@@ -21,6 +21,7 @@ body {
 #root {
   background: linear-gradient(to top right, #993399 -127%, #000000 90%);
   min-height: 100vh;
+  min-width: 100vw;
 }
 
 code {
