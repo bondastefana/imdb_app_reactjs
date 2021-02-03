@@ -8,7 +8,9 @@ export class Header extends React.Component {
   // header that renders: app-logo and app-name;
   // header = navigation (react link login/register) + search input(bootstrap comp)
   render() {
+    const isAuthenticated = localStorage.getItem('accessToken')
     const userDevice = detectDevice()
+
     const handleTyping = (event) => {
       //path cu SearchPage, mai departe event.target.value ca string
       if (event.key === 'Enter') {
@@ -25,6 +27,11 @@ export class Header extends React.Component {
           })
       }
     }
+
+    const handleLogout = () => {
+      localStorage.removeItem('accessToken')
+      window.location.reload()
+    }
     return (
       <Container className="header" fluid>
         <Row
@@ -38,20 +45,43 @@ export class Header extends React.Component {
                 <Logo className="app-logo" />
               </Col>
               <Col xs={6} lg={10} className="appname-container">
-                <p className="app-name">MyIMDB</p>
+                <Link to="/">
+                  <p className="app-name">MyIMDB</p>
+                </Link>
               </Col>
             </Row>
           </Col>
-          <Col xs={8} md={4} lg={3} className="links-container">
-            <Link to="/login-register" className="login-register">
-              Login/Register
-            </Link>
-          </Col>
-          <Col xs={12} md={4} lg={3} className="search-container">
+          {!isAuthenticated ? (
+            <Col xs={8} md={3} lg={2} className="links-container">
+              <Link to="/login-register" className="login-register">
+                Login/Register
+              </Link>
+            </Col>
+          ) : (
+            <Col xs={8} md={3} lg={2} className="links-container">
+              <Link to="/addmovie" className="add-movie">
+                Add Movie
+              </Link>
+            </Col>
+          )}
+
+          <Col
+            xs={isAuthenticated ? 9 : 10}
+            md={isAuthenticated ? 4 : 5}
+            lg={isAuthenticated ? 3 : 4}
+            className="search-container"
+          >
             {/* event on enter/on keydown verified, it leads you to the search page where the get movie by name call is triggered. 
 						send the information from search input and get it on search page through url*/}
             <input onKeyDown={handleTyping} placeholder="Search" type="text" />
           </Col>
+          {isAuthenticated ? (
+            <Col xs={2} md={1} lg={1} className="logout-container">
+              <p onClick={handleLogout} className="logout">
+                Logout
+              </p>
+            </Col>
+          ) : null}
         </Row>
       </Container>
     )
