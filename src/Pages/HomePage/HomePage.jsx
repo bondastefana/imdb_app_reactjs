@@ -30,6 +30,7 @@ export class HomePage extends React.Component {
   // for each movie category => fetch(category) inside Carousel comp => set the title with categ name;
   // response will be passed down as props on the slider
   render() {
+    console.log('home')
     return (
       <Container fluid>
         <p className="motto">... bringing Joy through Reel</p>
