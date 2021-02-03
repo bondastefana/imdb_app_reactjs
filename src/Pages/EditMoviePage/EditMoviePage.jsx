@@ -71,8 +71,8 @@ class EditMoviePage extends React.Component {
 
   render() {
     return (
-      <body className="addmovie">
-        <form className="add-form-movie" id="add-form">
+      <div className="editmovie">
+        <form className="edit-form-movie" id="edit-form">
           <input
             className="title"
             name="title"
@@ -113,14 +113,14 @@ class EditMoviePage extends React.Component {
             value={this.state.poster}
             onChange={this.handleInput}
           />
-          <div className="add-movie">
-            <button id="add-button" type="submit" onClick={this.handleClick}>
+          <div className="edit-movie">
+            <button id="edit-button" type="submit" onClick={this.handleClick}>
               Edit Movie
             </button>
           </div>
         </form>
         <p>{this.state.items.text}</p>
-      </body>
+      </div>
     );
   }
 }
