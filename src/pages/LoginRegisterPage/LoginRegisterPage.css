@@ -9,12 +9,13 @@ input{
     border-style: none;
     background-color: rgba(0, 0, 0, 0);
 }
+
 body{
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center
-}
+} */
 
 .base-container{
     display: flex;

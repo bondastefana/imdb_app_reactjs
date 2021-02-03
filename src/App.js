@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { HomePage } from './pages/HomePage/HomePage'
-import { SearchPage } from './pages/SearchPage/SearchPage'
+import  SearchPage  from './pages/SearchPage/SearchPage'
 import { LoginRegisterPage } from './pages/LoginRegisterPage/LoginRegisterPage'
 import { Header } from './componets/Header/Header'
 import { MovieDetailsPage } from './pages/MovieDetailsPage/MovieDetailPage'
