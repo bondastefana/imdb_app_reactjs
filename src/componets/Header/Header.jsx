@@ -1,37 +1,35 @@
 import React from 'react'
 import './Header.css'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../assets/AppLogo.svg'
 import { Container, Row, Col } from 'react-bootstrap'
 import { detectDevice, baseURL } from '../../shared/utils.js'
 export class Header extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   // header that renders: app-logo and app-name;
   // header = navigation (react link login/register) + search input(bootstrap comp)
+
+  handleTyping = (event) => {
+    const { history } = this.props
+    //path cu SearchPage, mai departe event.target.value ca string
+    if (event.key === 'Enter') {
+      // console.log('Change the State with ', event.target.value)
+      let searchedMovie = event.target.value
+      history.push(`/search/${searchedMovie}`)
+      console.log(this.props)
+    }
+  }
+
+  handleLogout = () => {
+    localStorage.removeItem('accessToken')
+    window.location.reload()
+  }
   render() {
     const isAuthenticated = localStorage.getItem('accessToken')
     const userDevice = detectDevice()
 
-    const handleTyping = (event) => {
-      //path cu SearchPage, mai departe event.target.value ca string
-      if (event.key === 'Enter') {
-        // console.log('Change the State with ', event.target.value)
-        fetch(`${baseURL}/movies?Title=${event.target.value}`, {
-          method: 'GET',
-        })
-          .then((response) => {
-            return response.json()
-          })
-          .then((parsedResponse) => console.log(parsedResponse.results))
-          .catch((error) => {
-            throw new Error(error)
-          })
-      }
-    }
-
-    const handleLogout = () => {
-      localStorage.removeItem('accessToken')
-      window.location.reload()
-    }
     return (
       <Container className="header" fluid>
         <Row
@@ -73,11 +71,15 @@ export class Header extends React.Component {
           >
             {/* event on enter/on keydown verified, it leads you to the search page where the get movie by name call is triggered. 
 						send the information from search input and get it on search page through url*/}
-            <input onKeyDown={handleTyping} placeholder="Search" type="text" />
+            <input
+              onKeyDown={this.handleTyping}
+              placeholder="Search"
+              type="text"
+            />
           </Col>
           {isAuthenticated ? (
             <Col xs={2} md={1} lg={1} className="logout-container">
-              <p onClick={handleLogout} className="logout">
+              <p onClick={this.handleLogout} className="logout">
                 Logout
               </p>
             </Col>
@@ -87,3 +89,5 @@ export class Header extends React.Component {
     )
   }
 }
+
+export const HeaderWithRouter = withRouter(Header)
