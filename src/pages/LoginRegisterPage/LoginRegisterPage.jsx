@@ -239,24 +239,24 @@ export class LoginRegisterPage extends React.Component {
                         <div>
                             <img
                                 type='button'
-                                src={BtnBlankReg}
-                                onClick={this.handleClick}
-                            />
-                            <img
-                                type='button'
-                                src={BtnReg}
-                                onClick={this.handleClick}
-                            />
-                        </div> :
-                        <div>
-                            <img
-                                type='button'
                                 src={Btn}
                                 onClick={this.handleClick}
                             />
                             <img
                                 type='button'
                                 src={BtnBlank}
+                                onClick={this.handleClick}
+                            />
+                        </div> :
+                        <div>
+                            <img
+                                type='button'
+                                src={BtnBlankReg}
+                                onClick={this.handleClick}
+                            />
+                            <img
+                                type='button'
+                                src={BtnReg}
                                 onClick={this.handleClick}
                             />
                         </div>

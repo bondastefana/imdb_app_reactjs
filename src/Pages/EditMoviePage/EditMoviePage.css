@@ -1,0 +1,98 @@
+
+
+.editmovie {
+    width: 100%;
+    position: relative;
+    
+}
+
+.title {
+    background-color: rgb(255, 255, 255);
+    font-size: 1em;
+
+       left: 70%;
+        padding: 0.5em;
+        border-radius:10px;
+        right: auto;
+        width: 180px;
+        height: 30px;
+        position: relative;
+        display:block;
+        outline: none;
+        margin: 5px;
+}
+
+.year {
+    background-color: white;
+    font-size: 1em;
+       left: 100%;
+        padding: 0.5em;
+        border: 0;
+        border-radius:10px;
+        right: auto;
+        width: 180px;
+        height: 30px;
+        position: relative;
+        display:block;
+        outline: none;
+}
+
+.imdbid {
+    background-color: white;
+    font-size: 1em;
+       left: 100%;
+        padding: 0.5em;
+        border: 0;
+        border-radius:10px;
+        right: auto;
+        width: 180px;
+        height: 30px;
+        position: relative;
+        display:block;
+        outline: none;
+}
+
+.type {
+    background-color: white;
+    font-size: 1em;
+       left: 100%;
+        padding: 0.5em;
+        border: 0;
+        border-radius:10px;
+        right: auto;
+        width: 180px;
+        height: 30px;
+        position: relative;
+        display:block;
+        outline: none;
+}
+
+.poster {
+    background-color: white;
+    font-size: 1em;
+       left: 100%;
+        padding: 0.5em;
+        border: 0;
+        border-radius:10px;
+        right: auto;
+        width: 180px;
+        height: 30px;
+        position: relative;
+        display:block;
+        outline: none;
+}
+
+
+
+
+.add-button {
+    text-align:center;
+    font-size: 1em;
+    left: 70%;
+   outline: none;
+   padding: 0.5em;
+   border-radius:10px;
+   width: 100px;
+   height: 40px;
+   position:relative;
+}
