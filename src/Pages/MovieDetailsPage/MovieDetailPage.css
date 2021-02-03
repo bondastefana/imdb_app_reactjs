@@ -22,12 +22,14 @@
   border-radius: 20px;
   width: 50vw;
   height: 40vh;
-  padding-left: 5%;
+  padding-left: 2%;
 }
 
 .posters {
   display: flex;
   margin: 1%;
+  margin-top: 20px;
+  margin-bottom: 20px;
   margin-left: 0px;
   width: 35vw;
   height: 45vw;
@@ -67,7 +69,7 @@
 .imdbRating {
   color: hsl(39, 66%, 57%);
   margin-top: 10%;
-  padding-top: 10%;
+  padding-top: 3%;
   padding-left: 5%;
 }
 
@@ -93,4 +95,9 @@
   margin-top: 2%;
   width: 40px;
   height: 40px;
+}
+
+.movie-plot {
+  padding-left: 10px;
+  padding-right: 10px;
 }
