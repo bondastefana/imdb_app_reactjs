@@ -89,8 +89,9 @@
 
 
 
-.add-movie-button {
-    text-align: center;
+
+.add-button {
+    text-align:center;
     font-size: 1em;
     left: 70%;
    outline: none;

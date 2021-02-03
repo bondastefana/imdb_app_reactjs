@@ -116,7 +116,8 @@ class AddMoviePage extends React.Component {
             onChange={this.handleInput}
           />
           <div>
-            <button className="add-movie-button" id="add-button" type="submit" onClick={this.handleClick}>
+            <button className="add-button" type="submit" onClick={this.handleClick}>
+
               Add
             </button>
           </div>
