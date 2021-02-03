@@ -89,10 +89,10 @@
 
 
 
-#add-button {
+.add-button {
     text-align:center;
     font-size: 1em;
-    left: 100%;
+    left: 70%;
    outline: none;
    padding: 0.5em;
    border-radius:10px;

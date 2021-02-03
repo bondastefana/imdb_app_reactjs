@@ -70,7 +70,7 @@ class AddMoviePage extends React.Component {
 
   render() {
     return (
-      <body className="addmovie">
+      <div className="addmovie">
         <form className="add-form-movie" id="add-form">
           <input
             className="title"
@@ -112,14 +112,14 @@ class AddMoviePage extends React.Component {
             value={this.state.poster}
             onChange={this.handleInput}
           />
-          <div className="add-movie">
-            <button id="add-button" type="submit" onClick={this.handleClick}>
+          <div>
+            <button className="add-button" type="submit" onClick={this.handleClick}>
               Add
             </button>
           </div>
         </form>
         <p>{this.state.items.text}</p>
-      </body>
+      </div>
     );
   }
 }
