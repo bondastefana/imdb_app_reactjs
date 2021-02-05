@@ -35,7 +35,6 @@ class LoginPage extends React.Component {
     }
 
     handleClick(event) {
-        let history = useHistory();
         var apiBaseUrl = "https://movies-app-siit.herokuapp.com/auth/"
         const payload = {
             method: "POST",
