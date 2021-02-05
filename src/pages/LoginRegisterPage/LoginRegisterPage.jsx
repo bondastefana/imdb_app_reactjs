@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { useHistory } from "react-router-dom";
 import UserIcon from "../../assets/UserIcon.svg";
 import PasswordIcon from "../../assets/PasswordIcon.svg";
 import Btn from "../../assets/Btn.svg";
@@ -7,6 +6,7 @@ import BtnBlank from "../../assets/BtnBlank.svg";
 import BtnReg from "../../assets/BtnReg.svg";
 import BtnBlankReg from "../../assets/BtnBlankReg.svg";
 import './LoginRegisterPage.css'
+
 
 
 class LoginPage extends React.Component {
@@ -46,9 +46,6 @@ class LoginPage extends React.Component {
                 'password': this.state.password
             })
         };
-
-        let history = useHistory();
-
         const { username, password } = this.state;
 
         if (username && password) {
@@ -66,7 +63,7 @@ class LoginPage extends React.Component {
                         authenticated: true
                     })
                     localStorage.setItem('accessToken', data.accessToken)
-                    history.push('/')
+                    window.location.href = "/"
                 })
                 .catch((err) => console.log(err));
         } else {
@@ -173,8 +170,6 @@ class RegisterPage extends Component {
             })
         };
 
-        let history = useHistory();
-
         const { password, confirmPassword } = this.state;
 
         if (password !== confirmPassword) {
@@ -194,7 +189,7 @@ class RegisterPage extends Component {
                         authenticated: true
                     })
                     localStorage.setItem('accessToken', data.accessToken)
-                    history.push('/')
+                    window.location.href = "/"
                 })
                 .catch((err) => console.log(err));
         }
