@@ -15,7 +15,6 @@ class MovieDetails extends React.Component {
     this.state = {
       loadind: true,
       movie: [],
-      editMovie: false,
     };
   }
 
@@ -29,9 +28,9 @@ class MovieDetails extends React.Component {
 
   backButton = () => this.props.history.goBack();
 
-  editButton = () => {
-    this.setState({ editMovie: true });
-  };
+  // editButton = () => {
+  //   this.setState({ editMovie: true });
+  // };
 
   async deleteMovie() {
     const id = window.location.pathname.replace("/movie/", "");
@@ -75,10 +74,13 @@ class MovieDetails extends React.Component {
               <h2 className="movie-title">{this.state.movie.Title}</h2>
               <h2 className="movie-des">{this.state.movie.Year}</h2>
               <div>
-                <Link to="/editmovie">
-                  <button className="button" onClick={() => this.editButton}>
-                    Edit Movie
-                  </button>
+                <Link
+                  to={`/editmovie/${window.location.pathname.replace(
+                    "/movie/",
+                    ""
+                  )}`}
+                >
+                  <button className="button">Edit Movie</button>
                 </Link>{" "}
                 {isAuthenticated ? (
                   <button className="button-del" onClick={this.deleteMovie}>
@@ -99,7 +101,10 @@ class MovieDetails extends React.Component {
                 </li>
                 <li>
                   Plot :
-                  <span className="movie-des-plot"> {this.state.movie.Plot}</span>
+                  <span className="movie-des-plot">
+                    {" "}
+                    {this.state.movie.Plot}
+                  </span>
                 </li>
                 <li>
                   Genre :
@@ -127,7 +132,14 @@ class MovieDetails extends React.Component {
                 </li>
                 <li>
                   Production:
-                  <span className="movie-des"> {this.state.movie.Production}</span>
+                  <span className="movie-des">
+                    {" "}
+                    {this.state.movie.Production}
+                  </span>
+                </li>
+                <li>
+                  ImdbID:
+                  <span className="movie-des"> {this.state.movie.imdbID}</span>
                 </li>
               </ul>
             </th>
