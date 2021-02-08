@@ -2,11 +2,12 @@ import React from "react";
 import "./MovieDetailPage.css";
 import { Link, useRouteMatch, withRouter } from "react-router-dom";
 import "../../assets/BtnBlankReg.svg";
- import { LoginRegisterPage } from "../LoginRegisterPage/LoginRegisterPage";
- import { ReactComponent } from "../../assets/BtnBlankReg.svg";
- import { HomePage } from "../HomePage/HomePage";
- import {baseURL} from "../../../src/shared/utils"
- import { propTypes } from "react-bootstrap/esm/Image";
+import { LoginRegisterPage } from "../LoginRegisterPage/LoginRegisterPage";
+import { ReactComponent } from "../../assets/BtnBlankReg.svg";
+import { HomePage } from "../HomePage/HomePage";
+import { baseURL } from "../../../src/shared/utils";
+import { propTypes } from "react-bootstrap/esm/Image";
+import { ColorLensOutlined, MoreVertTwoTone } from "@material-ui/icons";
 
 class MovieDetails extends React.Component {
   constructor(props) {
@@ -14,21 +15,39 @@ class MovieDetails extends React.Component {
     this.state = {
       loadind: true,
       movie: [],
-      
-     
+      editMovie: false,
     };
-   
   }
 
   async componentDidMount() {
-    console.log(window.location)
-    const id = window.location.pathname.replace('/movie/', '')
-    const url = 'https://movies-app-siit.herokuapp.com/movies/'
-    const response = await fetch(url + id)
-    const data = await response.json()
-    this.setState({ movie: data, loading: false })
+    const id = window.location.pathname.replace("/movie/", "");
+    const url = "https://movies-app-siit.herokuapp.com/movies/";
+    const response = await fetch(url + id);
+    const data = await response.json();
+    this.setState({ movie: data, loading: false });
   }
-  
+
+  backButton = () => this.props.history.goBack();
+
+  editButton = () => {
+    this.setState({ editMovie: true });
+  };
+
+  async deleteMovie() {
+    const id = window.location.pathname.replace("/movie/", "");
+    const url = "https://movies-app-siit.herokuapp.com/movies/";
+    const token = localStorage.getItem("accessToken");
+    const response = await fetch(url + id, {
+      method: "DELETE",
+      headers: {
+        "X-Auth-Token": token,
+        "Content-Type": "application/json",
+      },
+    });
+
+    window.location.href = `/`;
+  }
+
   render() {
     const styleArea = {
       marginTop: "3%",
@@ -41,35 +60,32 @@ class MovieDetails extends React.Component {
       zIndex: "-1px",
     };
 
-      
-      const backButton = () => this.props.history.goBack();
-
-      const editButton = () => {
-        this.setState({
-          editMovie: true,
-        });
-      };
+    const isAuthenticated = localStorage.getItem("accessToken");
 
     return (
-      
-      <div  >
-        { this.state.loading || !this.state.movie? (
+      <div>
+        {this.state.loading || !this.state.movie ? (
           <div className="loading">loading...</div>
         ) : (
           <tr className="movie-details" style={styleArea}>
             <th>
-              <img  className="posters" src={this.state.movie.Poster}/>
+              <img className="posters" src={this.state.movie.Poster} />
             </th>
-            
             <th>
               <h2 className="movie-title">{this.state.movie.Title}</h2>
               <h2 className="movie-des">{this.state.movie.Year}</h2>
-            
-              <Link to="/editmovie">
-                <button className="button" onClick={()=>editButton}>
-                  Edit Movie
-                </button>
-              </Link>
+              <div>
+                <Link to="/editmovie">
+                  <button className="button" onClick={() => this.editButton}>
+                    Edit Movie
+                  </button>
+                </Link>{" "}
+                {isAuthenticated ? (
+                  <button className="button-del" onClick={this.deleteMovie}>
+                    Delete Movie
+                  </button>
+                ) : null}
+              </div>
               <div className="imdbRating">
                 {" "}
                 IMDB Rating:
@@ -115,7 +131,7 @@ class MovieDetails extends React.Component {
                 </li>
               </ul>
             </th>
-            <button className="exit" onClick={backButton}>
+            <button className="exit" onClick={this.backButton}>
               X
             </button>
           </tr>
