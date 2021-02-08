@@ -7,6 +7,7 @@ import { ReactComponent } from "../../assets/BtnBlankReg.svg";
 import { HomePage } from "../HomePage/HomePage";
 import { baseURL } from "../../../src/shared/utils";
 import { propTypes } from "react-bootstrap/esm/Image";
+import { ColorLensOutlined, MoreVertTwoTone } from "@material-ui/icons";
 
 class MovieDetails extends React.Component {
   constructor(props) {
@@ -15,12 +16,10 @@ class MovieDetails extends React.Component {
       loadind: true,
       movie: [],
       editMovie: false,
-      deleteMovie: false,
     };
   }
 
   async componentDidMount() {
-    console.log(window.location);
     const id = window.location.pathname.replace("/movie/", "");
     const url = "https://movies-app-siit.herokuapp.com/movies/";
     const response = await fetch(url + id);
@@ -28,15 +27,26 @@ class MovieDetails extends React.Component {
     this.setState({ movie: data, loading: false });
   }
 
-  deleteMovie = () => {
-    this.setState(this.removeItem(this.url + this.id));
-  };
-
   backButton = () => this.props.history.goBack();
 
   editButton = () => {
     this.setState({ editMovie: true });
   };
+
+  async deleteMovie() {
+    const id = window.location.pathname.replace("/movie/", "");
+    const url = "https://movies-app-siit.herokuapp.com/movies/";
+    const token = localStorage.getItem("accessToken");
+    const response = await fetch(url + id, {
+      method: "DELETE",
+      headers: {
+        "X-Auth-Token": token,
+        "Content-Type": "application/json",
+      },
+    });
+
+    window.location.href = `/`;
+  }
 
   render() {
     const styleArea = {
@@ -51,7 +61,7 @@ class MovieDetails extends React.Component {
     };
 
     const isAuthenticated = localStorage.getItem("accessToken");
-    const { movie } = this.props;
+
     return (
       <div>
         {this.state.loading || !this.state.movie ? (
@@ -64,23 +74,17 @@ class MovieDetails extends React.Component {
             <th>
               <h2 className="movie-title">{this.state.movie.Title}</h2>
               <h2 className="movie-des">{this.state.movie.Year}</h2>
-
-              <Link to="/editmovie">
-                <button className="button" onClick={() => this.editButton}>
-                  Edit Movie
-                </button>
-              </Link>
               <div>
-                {" "}
+                <Link to="/editmovie">
+                  <button className="button" onClick={() => this.editButton}>
+                    Edit Movie
+                  </button>
+                </Link>{" "}
                 {isAuthenticated ? (
-                  <button
-                    className="button-del"
-                    onClick={() => this.deleteMovie}
-                  >
+                  <button className="button-del" onClick={this.deleteMovie}>
                     Delete Movie
                   </button>
                 ) : null}
-                )
               </div>
               <div className="imdbRating">
                 {" "}

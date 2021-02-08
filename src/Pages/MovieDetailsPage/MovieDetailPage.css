@@ -68,12 +68,12 @@
 
 .button-del {
   margin-top: 20px;
-  padding: 0px;
-  width: 100px;
+  padding: 5px;
+  width: 130px;
   height: 40px;
   border-radius: 50px;
   border-style: none;
-  margin-left: 5%;
+  margin-left: 65%;
   background-color: #b6bdb41e;
   color: hsl(39, 66%, 57%);
 }
