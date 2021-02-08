@@ -81,6 +81,10 @@
     color: purple;
 }
 
+.oneMovieContainer:hover{
+    cursor: pointer;
+}
+
 .mainContainerSearch{
     display: flex;
     align-items: center;

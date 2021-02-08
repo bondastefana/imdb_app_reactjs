@@ -65,6 +65,7 @@ const useStyles = makeStyles({
         padding: 20,
         zIndex: "-1",
     },
+
 });
 
 export default function Footer() {
@@ -175,7 +176,7 @@ export default function Footer() {
                             gutterBottom variant="h5"
                             component="h2"
                         >
-                            Andreea-Stafana Bonda
+                            Andreea-Stefana Bonda
           </Typography>
                         <Typography
                             className={classes.description}
