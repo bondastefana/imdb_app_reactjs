@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import "./EditMoviePage.css";
 
 class EditMoviePage extends React.Component {
@@ -11,55 +12,56 @@ class EditMoviePage extends React.Component {
       imdbID: "",
       type: "",
       poster: "",
+      movie: [],
     };
-    this.editItem = this.editItem.bind(this);
+
     this.handleInput = this.handleInput.bind(this);
     this.handleClick = this.handleClick.bind(this);
-
-
   }
 
-  requireAuth(nextState, replace) {
-    if (!this.authenticated())
-      replace("/login");
+  componentDidMount() {
+    const isAuthenticated = localStorage.getItem("accessToken");
+    console.log(isAuthenticated);
+    const { history } = this.props;
+    if (!isAuthenticated) {
+      window.location.href = "/";
+    }
+    console.log(history);
+    
   }
 
   handleClick(event) {
+    event.preventDefault();
     var apiBaseUrl = "https://movies-app-siit.herokuapp.com/movies/:id";
     console.log(
       "values",
-      this.state.Title,
-      this.state.Year,
+      this.state.title,
+      this.state.year,
       this.state.imdbID,
-      this.state.Type,
-      this.state.Poster
+      this.state.type,
+      this.state.poster
     );
 
     fetch(apiBaseUrl, {
+      headers: {
+        "X-Auth-Token": localStorage.getItem("accessToken"),
+        "Content-Type": "application/json",
+      },
       method: "PUT",
       body: JSON.stringify({
-        title: this.state.Title,
-        year: this.state.Year,
+        title: this.state.title,
+        year: this.state.year,
         imdbID: this.state.imdbID,
-        type: this.state.Type,
-        poster: this.state.Poster,
+        type: this.state.type,
+        poster: this.state.poster,
       }),
     });
     console.log(event);
+    console.log();
   }
 
-  editItem(e) {
-    e.preventDefault();
-    const newItem = this.state.currentItem;
-    if (newItem !== "") {
-      const items = [...this.state.items, newItem];
-      this.setState({
-        items: items,
-        currentItem: {
-          text: "",
-        },
-      });
-    }
+  editMovie() {
+    this.setState({ items: "" });
   }
 
   handleInput(event) {
@@ -71,10 +73,8 @@ class EditMoviePage extends React.Component {
 
   render() {
     return (
-
       <div className="addmovie">
         <form className="add-form-movie" id="add-form">
-
           <input
             className="title"
             name="title"
@@ -116,7 +116,7 @@ class EditMoviePage extends React.Component {
             onChange={this.handleInput}
           />
           <div>
-            <button className="add-button" type="submit" onClick={this.handleClick}>
+            <button className="add-button" onClick={this.handleClick}>
               Edit Movie
             </button>
           </div>
