@@ -2,10 +2,11 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import "./EditMoviePage.css";
 
-class EditMoviePage extends React.Component {
+class EditMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      movieId: 0,
       items: [],
       title: "",
       year: "",
@@ -20,19 +21,33 @@ class EditMoviePage extends React.Component {
   }
 
   componentDidMount() {
+    const {
+      movieId,
+      title,
+      year,
+      imdbID,
+      type,
+      posterUrl,
+    } = this.props.location.mobieDetails
+
+    this.setState({
+      movieId: movieId,
+      title: title,
+      year: year,
+      imdbID: imdbID,
+      type: type,
+      poster: porsterUrl,
+    })
+
     const isAuthenticated = localStorage.getItem("accessToken");
-    console.log(isAuthenticated);
-    const { history } = this.props;
     if (!isAuthenticated) {
       window.location.href = "/";
-    }
-    console.log(history);
-    
+    }  
   }
 
   handleClick(event) {
     event.preventDefault();
-    var apiBaseUrl = "https://movies-app-siit.herokuapp.com/movies/:id";
+    var apiBaseUrl = `https://movies-app-siit.herokuapp.com/movies/${this.state.movieId}`;
     console.log(
       "values",
       this.state.title,
@@ -55,9 +70,12 @@ class EditMoviePage extends React.Component {
         type: this.state.type,
         poster: this.state.poster,
       }),
-    });
-    console.log(event);
-    console.log();
+    }).then((response) => {
+      alert('Movie has been edited')
+      setTimeout(() => {
+        window.location.href = '/'
+      }, 1000)
+    })
   }
 
   editMovie() {
@@ -68,7 +86,6 @@ class EditMoviePage extends React.Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
-    console.log(event);
   }
 
   render() {
@@ -127,4 +144,4 @@ class EditMoviePage extends React.Component {
   }
 }
 
-export { EditMoviePage };
+export const EditMoviePage = withRouter(EditMovie)
