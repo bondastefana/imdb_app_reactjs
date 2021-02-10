@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Footer from './componets/Footer/Footer'
 export class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       authenticated: false,
     }
@@ -25,7 +25,6 @@ export class App extends React.Component {
         <Switch>
           <Route exact path="/">
             <HomePage />
-            <Footer />
           </Route>
           <Route exact path="/search/:title">
             <SearchPage />
@@ -41,6 +40,7 @@ export class App extends React.Component {
             <EditMoviePage />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     )
   }
