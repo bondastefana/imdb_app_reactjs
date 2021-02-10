@@ -75,10 +75,17 @@ class MovieDetails extends React.Component {
               <h2 className="movie-des">{this.state.movie.Year}</h2>
               <div>
                 <Link
-                  to={`/editmovie/${window.location.pathname.replace(
-                    "/movie/",
-                    ""
-                  )}`}
+                  to={{
+                    pathname: "/editmovie",
+                    movieDetails: {
+                      movieId: this.state.movieId,
+                      title: this.state.movie.Title,
+                      year: this.state.movie.Year,
+                      imdbId: this.state.movie.imdbID,
+                      type: this.state.movie.Genre,
+                      posterUrl: this.state.movie.Poster,
+                    },
+                  }}
                 >
                   <button className="button">Edit Movie</button>
                 </Link>{" "}
