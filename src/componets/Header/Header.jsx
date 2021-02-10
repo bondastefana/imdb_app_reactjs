@@ -23,8 +23,9 @@ export class Header extends React.Component {
   }
 
   handleLogout = () => {
+    const { history } = this.props
     localStorage.removeItem('accessToken')
-    window.location.reload()
+    history.push('/')
   }
   render() {
     const isAuthenticated = localStorage.getItem('accessToken')
@@ -56,12 +57,12 @@ export class Header extends React.Component {
               </Link>
             </Col>
           ) : (
-            <Col xs={8} md={3} lg={2} className="links-container">
-              <Link to="/addmovie" className="add-movie">
-                Add Movie
+              <Col xs={8} md={3} lg={2} className="links-container">
+                <Link to="/addmovie" className="add-movie">
+                  Add Movie
               </Link>
-            </Col>
-          )}
+              </Col>
+            )}
 
           <Col
             xs={isAuthenticated ? 9 : 10}
