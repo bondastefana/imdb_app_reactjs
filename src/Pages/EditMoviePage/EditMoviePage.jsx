@@ -36,7 +36,7 @@ class EditMovie extends React.Component {
       year: year,
       imdbID: imdbID,
       type: type,
-      poster: porsterUrl,
+      poster: posterUrl,
     })
 
     const isAuthenticated = localStorage.getItem("accessToken");
