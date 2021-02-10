@@ -10,6 +10,13 @@ import { EditMoviePage } from './pages/EditMoviePage/EditMoviePage'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Footer from './componets/Footer/Footer'
 export class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      authenticated: false,
+    }
+  }
+
   // Header comp is included outside the Switch because we want to display it on each page;
   render() {
     return (
@@ -18,13 +25,12 @@ export class App extends React.Component {
         <Switch>
           <Route exact path="/">
             <HomePage />
+            <Footer />
           </Route>
           <Route exact path="/search/:title">
             <SearchPage />
           </Route>
-          <Route exact path="/login-register">
-            <LoginRegisterPage />
-          </Route>
+          <Route exact path="/login-register" component={LoginRegisterPage} />
           <Route exact path="/movie/:id">
             <MovieDetailsPage />
           </Route>
@@ -35,7 +41,6 @@ export class App extends React.Component {
             <EditMoviePage />
           </Route>
         </Switch>
-        <Footer />
       </Router>
     )
   }
