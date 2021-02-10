@@ -6,16 +6,12 @@ import StarIcon from '@material-ui/icons/Star'
 import QueryBuilder from '@material-ui/icons/QueryBuilder'
 import LanguageIcon from '@material-ui/icons/Language'
 import LocationOnIcon from '@material-ui/icons/LocationOn'
-import { baseURL, detectDevice } from '../../shared/utils.js'
+import { detectDevice } from '../../shared/utils.js'
 import { Container, Row, Col, Image } from 'react-bootstrap'
 
 export class Slider extends React.Component {
-  // constructor(props) {
-  //   super(props)
-  // }
-
   render() {
-    const { movies, categoryName } = this.props // din CarouselContainer
+    const { movies, categoryName } = this.props // from CarouselContainer
 
     return (
       <Container>
@@ -36,10 +32,6 @@ export class Slider extends React.Component {
 }
 
 class Movie extends React.Component {
-  // constructor(props) {
-  //   super(props)
-  // }
-
   render() {
     const userDevice = detectDevice()
 
@@ -73,8 +65,6 @@ class Movie extends React.Component {
     }
 
     const handleMovieClick = (event) => {
-      console.log(movie._id)
-      //path cu MovieDetails cu id-ul din url de pe care s-a dat click
       window.location.href = `/movie/${movie._id}`
     }
 
