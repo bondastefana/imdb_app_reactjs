@@ -12,7 +12,7 @@ export class CarouselContainer extends React.Component {
   }
 
   componentDidMount() {
-    const { category } = this.props //destructuring
+    const { category } = this.props
     fetch(`${baseURL}/movies?Genre=${category}`, { method: 'GET' }) // API call - get movies by Genre
       .then((response) => {
         return response.json()
@@ -30,7 +30,7 @@ export class CarouselContainer extends React.Component {
     return (
       <div className="carousel">
         <Slider movies={this.state.movies} categoryName={category} />
-        {/* The Slider is populated with movies si categoryName*/}
+        {/* The Slider is populated with movies & categoryName*/}
       </div>
     )
   }

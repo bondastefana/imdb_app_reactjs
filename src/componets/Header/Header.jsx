@@ -3,19 +3,12 @@ import './Header.css'
 import { Link, withRouter } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../assets/AppLogo.svg'
 import { Container, Row, Col } from 'react-bootstrap'
-import { detectDevice, baseURL } from '../../shared/utils.js'
+import { detectDevice } from '../../shared/utils.js'
 export class Header extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-  // header that renders: app-logo and app-name;
-  // header = navigation (react link login/register) + search input(bootstrap comp)
-
   handleTyping = (event) => {
     const { history } = this.props
-    //path cu SearchPage, mai departe event.target.value ca string
+
     if (event.key === 'Enter') {
-      // console.log('Change the State with ', event.target.value)
       let searchedMovie = event.target.value
       event.target.value = ''
       history.push(`/search/${searchedMovie}`)
@@ -23,9 +16,8 @@ export class Header extends React.Component {
   }
 
   handleLogout = () => {
-    const { history } = this.props
     localStorage.removeItem('accessToken')
-    history.push('/')
+    this.props.history.push('/')
   }
   render() {
     const isAuthenticated = localStorage.getItem('accessToken')
@@ -57,12 +49,12 @@ export class Header extends React.Component {
               </Link>
             </Col>
           ) : (
-              <Col xs={8} md={3} lg={2} className="links-container">
-                <Link to="/addmovie" className="add-movie">
-                  Add Movie
+            <Col xs={8} md={3} lg={2} className="links-container">
+              <Link to="/addmovie" className="add-movie">
+                Add Movie
               </Link>
-              </Col>
-            )}
+            </Col>
+          )}
 
           <Col
             xs={isAuthenticated ? 9 : 10}
@@ -70,8 +62,6 @@ export class Header extends React.Component {
             lg={isAuthenticated ? 3 : 4}
             className="search-container"
           >
-            {/* event on enter/on keydown verified, it leads you to the search page where the get movie by name call is triggered. 
-						send the information from search input and get it on search page through url*/}
             <input
               onKeyDown={this.handleTyping}
               placeholder="Search"
