@@ -16,8 +16,9 @@ export class Header extends React.Component {
   }
 
   handleLogout = () => {
+    const { history } = this.props
     localStorage.removeItem('accessToken')
-    this.props.history.push('/')
+    history.push('/')
   }
   render() {
     const isAuthenticated = localStorage.getItem('accessToken')
