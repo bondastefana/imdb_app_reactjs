@@ -28,7 +28,7 @@ class EditMovie extends React.Component {
       imdbID,
       type,
       posterUrl,
-    } = this.props.location.mobieDetails
+    } = this.props.location.movieDetails
 
     this.setState({
       movieId: movieId,
