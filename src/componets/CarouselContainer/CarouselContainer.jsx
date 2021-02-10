@@ -12,7 +12,7 @@ export class CarouselContainer extends React.Component {
   }
 
   componentDidMount() {
-    const { category } = this.props //destructuring - vine de pe props
+    const { category } = this.props //destructuring
     fetch(`${baseURL}/movies?Genre=${category}`, { method: 'GET' }) // API call - get movies by Genre
       .then((response) => {
         return response.json()

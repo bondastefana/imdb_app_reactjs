@@ -66,6 +66,18 @@
   color: hsl(39, 66%, 57%);
 }
 
+.button-del {
+  margin-top: 20px;
+  padding: 5px;
+  width: 130px;
+  height: 40px;
+  border-radius: 50px;
+  border-style: none;
+  margin-left: 65%;
+  background-color: #b6bdb41e;
+  color: hsl(39, 66%, 57%);
+}
+
 .imdbRating {
   color: hsl(0, 0%, 96%);
   margin-top: 10%;

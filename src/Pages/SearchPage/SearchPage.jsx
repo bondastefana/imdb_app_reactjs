@@ -66,7 +66,7 @@ const SearchPage = () => {
   // }, [searchValue, filterValue, optionValue])
 
   return (
-    <div className="container-fluid movie-app">
+    <div className="mainSearchContainer">
       <div className='mainContainerSearch'>
         <MovieListHeading heading='Use the search box to find your favourite movies!'></MovieListHeading>
         <SearchBox clickHandler={clickHandler} setTitleValue={setTitleValue} setTypeValue={setTypeValue} setVotesValue={setVotesValue} setRatingValue={setRatingValue} setCountryValue={setCountryValue} setLanguageValue={setLanguageValue} setGenreValue={setGenreValue} setRuntimeValue={setRuntimeValue} setYearValue={setYearValue} />

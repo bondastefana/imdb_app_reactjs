@@ -59,6 +59,7 @@ const useStyles = makeStyles({
 		textAlign: 'center',
 	},
 
+
 	buttons: {
 		display: "flex",
 		justifyContent: "center",
