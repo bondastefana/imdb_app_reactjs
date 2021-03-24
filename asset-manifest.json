@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/imdb_app_reactjs/static/css/main.2710c1ba.chunk.css",
+    "main.js": "/imdb_app_reactjs/static/js/main.b14e51cd.chunk.js",
+    "main.js.map": "/imdb_app_reactjs/static/js/main.b14e51cd.chunk.js.map",
+    "runtime-main.js": "/imdb_app_reactjs/static/js/runtime-main.ff28e926.js",
+    "runtime-main.js.map": "/imdb_app_reactjs/static/js/runtime-main.ff28e926.js.map",
+    "static/css/2.150d169a.chunk.css": "/imdb_app_reactjs/static/css/2.150d169a.chunk.css",
+    "static/js/2.5278e809.chunk.js": "/imdb_app_reactjs/static/js/2.5278e809.chunk.js",
+    "static/js/2.5278e809.chunk.js.map": "/imdb_app_reactjs/static/js/2.5278e809.chunk.js.map",
+    "static/js/3.116e8079.chunk.js": "/imdb_app_reactjs/static/js/3.116e8079.chunk.js",
+    "static/js/3.116e8079.chunk.js.map": "/imdb_app_reactjs/static/js/3.116e8079.chunk.js.map",
+    "index.html": "/imdb_app_reactjs/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/imdb_app_reactjs/static/css/2.150d169a.chunk.css.map",
+    "static/css/main.2710c1ba.chunk.css.map": "/imdb_app_reactjs/static/css/main.2710c1ba.chunk.css.map",
+    "static/js/2.5278e809.chunk.js.LICENSE.txt": "/imdb_app_reactjs/static/js/2.5278e809.chunk.js.LICENSE.txt",
+    "static/media/Andreea.3d33eda0.jpg": "/imdb_app_reactjs/static/media/Andreea.3d33eda0.jpg",
+    "static/media/AppLogo.73a53ba0.svg": "/imdb_app_reactjs/static/media/AppLogo.73a53ba0.svg",
+    "static/media/Btn.2befdc3e.svg": "/imdb_app_reactjs/static/media/Btn.2befdc3e.svg",
+    "static/media/BtnBlank.5345e1d5.svg": "/imdb_app_reactjs/static/media/BtnBlank.5345e1d5.svg",
+    "static/media/BtnBlankReg.fa6c8f79.svg": "/imdb_app_reactjs/static/media/BtnBlankReg.fa6c8f79.svg",
+    "static/media/BtnReg.2df73899.svg": "/imdb_app_reactjs/static/media/BtnReg.2df73899.svg",
+    "static/media/Dan.74c4c4d1.jpg": "/imdb_app_reactjs/static/media/Dan.74c4c4d1.jpg",
+    "static/media/Ionut-Liviu.70f98264.jpg": "/imdb_app_reactjs/static/media/Ionut-Liviu.70f98264.jpg",
+    "static/media/PasswordIcon.383159d7.svg": "/imdb_app_reactjs/static/media/PasswordIcon.383159d7.svg",
+    "static/media/index.css": "/imdb_app_reactjs/static/media/Poppins-Regular.8081832f.ttf",
+    "static/media/Stefan.38153125.jpg": "/imdb_app_reactjs/static/media/Stefan.38153125.jpg",
+    "static/media/StefanC.2ecc95fb.jpg": "/imdb_app_reactjs/static/media/StefanC.2ecc95fb.jpg",
+    "static/media/UserIcon.f55c853c.svg": "/imdb_app_reactjs/static/media/UserIcon.f55c853c.svg",
+    "static/media/iconmonstr-github-1.04be58c1.svg": "/imdb_app_reactjs/static/media/iconmonstr-github-1.04be58c1.svg",
+    "static/media/iconmonstr-linkedin-3.27a3f479.svg": "/imdb_app_reactjs/static/media/iconmonstr-linkedin-3.27a3f479.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ff28e926.js",
+    "static/css/2.150d169a.chunk.css",
+    "static/js/2.5278e809.chunk.js",
+    "static/css/main.2710c1ba.chunk.css",
+    "static/js/main.b14e51cd.chunk.js"
+  ]
+}
