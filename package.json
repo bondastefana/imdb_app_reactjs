@@ -1,6 +1,6 @@
 {
-  "name": "movies_app_react",
-  "homepage": " https://bondastefana.github.io/movies_app_react/",
+  "name": "imdb_app_reactjs",
+  "homepage": " https://bondastefana.github.io/imdb_app_reactjs/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
